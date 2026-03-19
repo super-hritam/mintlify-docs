@@ -90,6 +90,7 @@
             "openapi": "api-reference/openapi.json",
             "pages": [
               "POST /campaign/outbound/create_call/superu",
+              "GET /call-status",
               "POST /call-logs/{assistant_id}"
             ]
           },
@@ -187,6 +188,17 @@
               "byon/twilio",
               "byon/telnyx",
               "byon/wavix"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "N8N",
+        "groups": [
+          {
+            "group": "Installation",
+            "pages": [
+              "api-reference/n8n-installation"
             ]
           }
         ]

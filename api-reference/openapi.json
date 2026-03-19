@@ -280,6 +280,74 @@
         ]
       }
     },
+    "/call-status": {
+      "get": {
+        "tags": [
+          "Calls"
+        ],
+        "summary": "Get call status",
+        "description": "Returns status details for a call by UUID.",
+        "operationId": "getCallStatus",
+        "parameters": [
+          {
+            "name": "call_uuid",
+            "in": "query",
+            "description": "UUID of the call to query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "e8f87167-d4fd-44f2-b03a-24cb600f86f2"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Call status response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenericResponse"
+                },
+                "example": {
+                  "status": "success",
+                  "call_uuid": "e8f87167-d4fd-44f2-b03a-24cb600f86f2",
+                  "call_status": "completed",
+                  "message": "Call status fetched successfully"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "501": {
+            "$ref": "#/components/responses/NotImplemented"
+          }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "curl",
+            "label": "cURL",
+            "source": "curl --request GET \\\\\n  --url 'https://voip-middlware.superu.ai/call-status?call_uuid=e8f87167-d4fd-44f2-b03a-24cb600f86f2' \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY'"
+          },
+          {
+            "lang": "python",
+            "label": "Python",
+            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\nresponse = client.calls.get_call_status(\n    call_uuid=\"e8f87167-d4fd-44f2-b03a-24cb600f86f2\"\n)\nprint(response)"
+          }
+        ]
+      }
+    },
     "/agent/create": {
       "post": {
         "tags": [

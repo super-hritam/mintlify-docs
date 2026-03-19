@@ -1,0 +1,75 @@
+---
+title: "SuperU Node Installation"
+description: "Install SuperU as a community node in n8n"
+---
+
+## Prerequisites
+
+- An n8n instance (Desktop or self-hosted)
+- Admin access to install community nodes
+- Your SuperU API key
+
+{/* Screenshot: n8n instance / account settings entry point */}
+
+## Enable Community Nodes
+
+If this is your first time installing community nodes, enable them in settings.
+
+1. Open **Settings** in n8n.
+2. Go to **Community Nodes**.
+3. Turn on **Allow Community Nodes**.
+4. Save changes.
+
+{/* Screenshot: Community Nodes toggle in settings */}
+![Community Node](</all pictures of platfrom guide/n8n-node 1.png>)
+
+## Install the SuperU Community Node
+
+In n8n, install a community node package by name.
+
+Package name (copy this):
+
+```bash
+@superuai/n8n-nodes-superu
+```
+
+1. Go to **Settings** → **Community Nodes**.
+2. Click **Install**.
+3. Paste the package name.
+4. Click **Install** and wait for completion.
+5. Restart n8n if prompted.
+
+{/* Screenshot: Install dialog with package name */}
+![Node Installation](</all pictures of platfrom guide/n8n-node 2.png>)
+
+## Verify Installation
+
+- The **SuperU** node appears in the node picker.
+- A test request returns a successful response.
+
+{/* Screenshot: Node picker showing SuperU */}
+![Node Installation](</all pictures of platfrom guide/n8n-node 3.png>)
+
+## Configure the Node
+
+1. Add the **SuperU** node to a workflow.
+2. Create new credentials and paste your API key.
+3. Save and test the connection.
+
+{/* Screenshot: Credentials modal / API key field */}
+![Node Installation](</all pictures of platfrom guide/n8n-node 4.png>)
+
+## Update or Remove the Node
+
+1. Go to **Settings** → **Community Nodes**.
+2. Find `@superuai/n8n-nodes-superu`.
+3. Choose **Update** or **Remove**.
+
+{/* Screenshot: Community Nodes list with update/remove actions */}
+![Node Installation](</all pictures of platfrom guide/n8n-node 5.png>)
+
+## Troubleshooting
+
+- **Node not visible**: Restart n8n and refresh the browser.
+- **Install failed**: Check network access and npm registry availability.
+- **Auth error**: Recreate credentials and confirm your API key.
