@@ -1234,36 +1234,121 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GenericResponse"
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "type": "object",
+                      "description": "<details>\n<summary>Hangup Causes</summary>\n\n<table>\n<thead>\n<tr><th>Cause</th><th>Description</th></tr>\n</thead>\n<tbody>\n<tr><td colspan=\"2\"><strong>Normal Completions</strong></td></tr>\n<tr><td>Agent Hangup</td><td>Agent hangup the call</td></tr>\n<tr><td>Normal Hangup</td><td>Call terminated normally</td></tr>\n<tr><td>End of XML Instructions</td><td>No more XML instructions to execute</td></tr>\n<tr><td>Multipart Call Ended</td><td>MPC ended via API or max duration</td></tr>\n<tr><td>Kicked Out of Multiparty Call</td><td>Participant removed via API</td></tr>\n<tr><td colspan=\"2\"><strong>Canceled Calls</strong></td></tr>\n<tr><td>Unknown</td><td>Hangup reason undetermined</td></tr>\n<tr><td>Canceled</td><td>Call canceled via Hangup Call API before answer</td></tr>\n<tr><td>Canceled (Out of Credits)</td><td>Account ran out of credits</td></tr>\n<tr><td>Canceled (Simultaneous dial limit reached)</td><td>Simultaneous dial limit exceeded</td></tr>\n<tr><td colspan=\"2\"><strong>Destination Issues</strong></td></tr>\n<tr><td>Invalid Destination Address</td><td>Destination number/endpoint invalid</td></tr>\n<tr><td>Destination Out of Service</td><td>Destination unavailable</td></tr>\n<tr><td>Endpoint Not Registered</td><td>SIP endpoint unregistered/unreachable</td></tr>\n<tr><td>Destination Country Barred</td><td>Country disabled in geo permissions</td></tr>\n<tr><td>Destination Number Barred</td><td>Premium rate numbers disabled</td></tr>\n<tr><td>Destination Prefix Barred</td><td>Prefix not permitted</td></tr>\n<tr><td>Loop Detected</td><td>B-leg would redial A leg's number</td></tr>\n<tr><td>Violates Media Anchoring</td><td>India PSTN regulation violation</td></tr>\n<tr><td colspan=\"2\"><strong>Call Rejections</strong></td></tr>\n<tr><td>No Answer</td><td>Destination unavailable/unreachable</td></tr>\n<tr><td>Busy Line</td><td>Destination is busy</td></tr>\n<tr><td>Rejected</td><td>Call rejected by called party</td></tr>\n<tr><td>Unkown Caller ID</td><td>Non-Plivo number used as caller ID</td></tr>\n<tr><td>Forbiddden</td><td>Destination rejected/blocked call</td></tr>\n<tr><td>Unallocated number</td><td>Destination invalid or out of service</td></tr>\n<tr><td colspan=\"2\"><strong>Carrier Errors</strong></td></tr>\n<tr><td>Request timeout</td><td>Carrier didn't respond in time</td></tr>\n<tr><td>Internal server error from carrier</td><td>Carrier encountered error</td></tr>\n<tr><td>Network congestion from carrier</td><td>Carrier network overloaded</td></tr>\n<tr><td>Busy everywhere</td><td>All destination endpoints busy</td></tr>\n<tr><td>Declined</td><td>Destination cannot/won't participate</td></tr>\n<tr><td>User does not exist anywhere</td><td>End user doesn't exist</td></tr>\n<tr><td>Spam block</td><td>Carrier rejected due to spam flag</td></tr>\n<tr><td>DNO Caller ID</td><td>Caller ID on Do Not</td></tr>\n<tr><td colspan=\"2\"><strong>System Errors</strong></td></tr>\n<tr><td>Network Error</td><td>Fatal network condition</td></tr>\n<tr><td>Internal Error</td><td>Plivo system error</td></tr>\n<tr><td>Routing Error</td><td>Could not route to destination</td></tr>\n<tr><td>Concurrency Limit Breached</td><td>India concurreny call limit exceeded</td></tr>\n<tr><td colspan=\"2\"><strong>Timeouts</strong></td></tr>\n<tr><td>Scheduled Hangup</td><td>Max call duration reached</td></tr>\n<tr><td>Ring Timeout Reached</td><td>Not answered within ring timeout</td></tr>\n<tr><td>Media Timeout</td><td>No media packets for 60 seconds</td></tr>\n<tr><td colspan=\"2\"><strong>URL Errors</strong></td></tr>\n<tr><td>Error Reaching Answer URL</td><td>Non-2xx response from answer URL</td></tr>\n<tr><td>Error Reaching Action URL</td><td>Non-2xx response from action URL</td></tr>\n<tr><td>Error Reaching Transfer URL</td><td>Non-2xx response from transfer URL</td></tr>\n<tr><td>Error Reaching Redirect URL</td><td>Non-2xx response from redirect URL</td></tr>\n<tr><td>Invalid Action URL</td><td>Action URL not valid</td></tr>\n<tr><td>Invalid Transfer URL</td><td>Transfer URL not valid</td></tr>\n<tr><td>Invalid Redirect URL</td><td>Redirect URL not valid</td></tr>\n<tr><td>Invalid Method for Action URL</td><td>Unsupported HTTP method</td></tr>\n<tr><td>Invalid Method for Transfer URL</td><td>Unsupported HTTP method</td></tr>\n<tr><td>Invalid Method for Redirect URL</td><td>Unsupported HTTP method</td></tr>\n<tr><td colspan=\"2\"><strong>XML Errors</strong></td></tr>\n<tr><td>Invalid Answer XML</td><td>Answer URL returned invalid XML</td></tr>\n<tr><td>Invalid Action XML</td><td>Action URL returned invalid XML</td></tr>\n<tr><td>Invalid Transfer XML</td><td>Transfer URL returned invalid XML</td></tr>\n<tr><td>Invalid Redirect XML</td><td>Redirect URL returned invalid XML</td></tr>\n<tr><td colspan=\"2\"><strong>Special Cases</strong></td></tr>\n<tr><td>Lost Race</td><td>Another parallel B-leg answered first</td></tr>\n<tr><td>Machine Detected</td><td>Answered by answering machine</td></tr>\n<tr><td>Confirm Key Challenge Failed</td><td>Participant failed to enter confirm key</td></tr>\n</tbody>\n</table>\n\n</details>"
+                    }
+                  }
                 },
                 "example": {
                   "success": true,
                   "data": {
                     "calls": [
                       {
-                        "call_uuid": "e8f87167-d4fd-44f2-b03a-24cb600f86f2",
-                        "assistant_id": "ag_01HXR8FM5QYCVXAK4TYFJ4AEP0",
-                        "campaign_id": "demo_call",
-                        "customer_name": "Ava",
-                        "customer_id": "cust_123",
-                        "to": "+14155552671",
-                        "from": "+14155550000",
-                        "status": "completed",
-                        "duration": 124,
-                        "cost": 0.42,
-                        "recording_url": "https://example.com/recordings/e8f87167-d4fd-44f2-b03a-24cb600f86f2.mp3",
-                        "transcript": "Agent: Hi Ava, thanks for taking the call.",
-                        "analysis": {
-                          "summary": "Customer confirmed interest in a follow-up.",
-                          "sentiment": "positive"
+                        "id": "b98d6318-5e5c-40c1-b9b3-805688506d92",
+                        "assistantId": "88c05f57-4aa2-40a6-b12a-848596260dae",
+                        "type": null,
+                        "cost": 0.02,
+                        "endedReason": "Customer Hangup",
+                        "status": "ended",
+                        "startedAt": "2026-04-20T06:59:42.449948+00:00",
+                        "endedAt": "2026-04-20T07:00:02.943036+00:00",
+                        "transcript": [
+                          {
+                            "id": "item_86abffec7b54",
+                            "type": "message",
+                            "role": "assistant",
+                            "content": [
+                              "नमस्ते! मैं पूजा बोल रही हूँ, आवरण होम प्लस से।"
+                            ],
+                            "interrupted": false,
+                            "extra": {},
+                            "metrics": {
+                              "tts_node_ttfb": 0.2542913980000776
+                            },
+                            "created_at": "2026-04-20T06:59:46.379377+00:00",
+                            "message": "नमस्ते! मैं पूजा बोल रही हूँ, आवरण होम प्लस से।"
+                          },
+                          {
+                            "id": "item_d16599786c31",
+                            "type": "message",
+                            "role": "assistant",
+                            "content": [
+                              "Can you hear me?"
+                            ],
+                            "interrupted": false,
+                            "extra": {},
+                            "metrics": {
+                              "started_speaking_at": 1776668389.9128273,
+                              "stopped_speaking_at": 1776668390.9525201,
+                              "tts_node_ttfb": 0.14719204099992567
+                            },
+                            "created_at": "2026-04-20T06:59:50.952606+00:00",
+                            "message": "Can you hear me?"
+                          },
+                          {
+                            "id": "item_d90d02b3164c",
+                            "type": "message",
+                            "role": "assistant",
+                            "content": [
+                              "Are you there?"
+                            ],
+                            "interrupted": false,
+                            "extra": {},
+                            "metrics": {
+                              "started_speaking_at": 1776668394.9146988,
+                              "stopped_speaking_at": 1776668395.8504355,
+                              "tts_node_ttfb": 0.14871830199990654
+                            },
+                            "created_at": "2026-04-20T06:59:55.850494+00:00",
+                            "message": "Are you there?"
+                          }
+                        ],
+                        "recordingUrl": "https://static.pathora.in/pluto_recordings/b98d6318-5e5c-40c1-b9b3-805688506d92.ogg",
+                        "summary": {
+                          "Summary": "The customer did not respond during the call. No information or intent was provided.",
+                          "Remarks": {
+                            "Intent": "None",
+                            "Next Call-to-Action": "None"
+                          },
+                          "Call Outcome": {
+                            "RSVP": "None",
+                            "Callback Requested": "None",
+                            "Callback Timeframe": "None",
+                            "Key Questions/Concerns": "None",
+                            "Follow-up Actions": "None"
+                          },
+                          "Customer Stage": {
+                            "Stage": "Not Picked"
+                          },
+                          "Additional Notes": {
+                            "Objections/Concerns": "None",
+                            "Visit Commitment": "None"
+                          }
                         },
-                        "created_at": "2026-01-15T10:30:00Z"
+                        "createdAt": "2026-04-20T06:59:42.449948+00:00",
+                        "updatedAt": "2026-04-20T07:00:02.943036+00:00",
+                        "orgId": "user_3763mSwxXbCByARq7E92FpJcJ71",
+                        "call_duration_seconds": 20.493088,
+                        "agent_id": "88c05f57-4aa2-40a6-b12a-848596260dae",
+                        "user_id": "user_3763mSwxXbCByARq7E92FpJcJ71",
+                        "campaign_id": "demo_call_web",
+                        "to_number": null,
+                        "from_number": null,
+                        "telecom_total_cost": null,
+                        "call_direction": null,
+                        "contact_name": null
                       }
                     ],
                     "total": 1,
-                    "total_cost": 0.42,
-                    "avg_duration": 124,
-                    "total_duration": 124
+                    "total_cost": 0.02,
+                    "avg_duration": 20.49,
+                    "total_duration": 20.49
                   }
                 }
               }
