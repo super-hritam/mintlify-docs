@@ -127,8 +127,8 @@
             "pages": [
               "POST /tool",
               "POST /tool/list",
-              "GET /tool/{tool_id}",
-              "PATCH /tool/{tool_id}",
+              "POST /tool/{tool_id}",
+              "POST /tool/update/{tool_id}",
               "DELETE /tool/{tool_id}"
             ]
           },

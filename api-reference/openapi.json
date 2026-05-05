@@ -275,7 +275,7 @@
           {
             "lang": "python",
             "label": "Python",
-            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\npayload = {\n    \"assistant_id\": \"ag_01HXR8FM5QYCVXAK4TYFJ4AEP0\",\n    \"to\": \"+14155552671\",\n    \"from\": \"+14155550000\",\n    \"campaign_id\": \"demo_call\",\n    \"customer_name\": \"Ava\",\n    \"customer_id\": \"cust_123\",\n    \"variable_values\": {\n        \"key\": \"value\"\n    }\n}\n\nresponse = client.calls.create_outbound_call(**payload)\nprint(response)"
+            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\nresponse = client.calls.create_outbound_call(\n    assistant_id=\"ag_01HXR8FM5QYCVXAK4TYFJ4AEP0\",\n    to=\"+14155552671\",\n    from_=\"+14155550000\",\n    campaign_id=\"demo_call\",\n    customer_name=\"Ava\",\n    customer_id=\"cust_123\",\n    variable_values={\n        \"key\": \"value\"\n    }\n)\nprint(response)"
           }
         ]
       }
@@ -301,13 +301,9 @@
                 "company_name": "SuperU",
                 "assistant_name": "Ava",
                 "first_message": "Hi, thanks for taking the call.",
-                "voice": "90ipbRoKi4CpHXvKVtl0",
                 "voice_id": "90ipbRoKi4CpHXvKVtl0",
                 "voice_provider": "11labs",
-                "speed": "1.0",
-                "bg_noice": "false",
-                "backgroundNoise": false,
-                "script": "You are a friendly assistant.",
+                "system_prompt": "You are a friendly assistant.",
                 "industry": "Blank Template",
                 "useCase": "Blank Template",
                 "form_model": {
@@ -366,12 +362,12 @@
           {
             "lang": "curl",
             "label": "cURL",
-            "source": "curl --request POST \\\\\n  --url https://voip-middlware.superu.ai/agent/create \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY' \\\\\n  --data '{\n  \"type\": \"outbound\",\n  \"name\": \"Demo Assistant\",\n  \"company_name\": \"SuperU\",\n  \"assistant_name\": \"Ava\",\n  \"first_message\": \"Hi, thanks for taking the call.\",\n  \"voice\": \"90ipbRoKi4CpHXvKVtl0\",\n  \"voice_id\": \"90ipbRoKi4CpHXvKVtl0\",\n  \"voice_provider\": \"11labs\",\n  \"speed\": \"1.0\",\n  \"bg_noice\": \"false\",\n  \"backgroundNoise\": false,\n  \"script\": \"You are a friendly assistant.\",\n  \"industry\": \"Blank Template\",\n  \"useCase\": \"Blank Template\",\n  \"form_model\": {\n    \"key\": \"value\"\n  },\n  \"assistant_data\": {\n    \"key\": \"value\"\n  },\n  \"knowledgeBase\": [\n    \"kb_abc123\"\n  ],\n  \"tools\": [\n    \"tool_01HXR9259WDZ2X3ZZKQ7HDG4C2\"\n  ],\n  \"call_forwarding\": {\n    \"key\": \"value\"\n  }\n}'"
+            "source": "curl --request POST \\\\\n  --url https://voip-middlware.superu.ai/agent/create \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY' \\\\\n  --data '{\n  \"type\": \"outbound\",\n  \"name\": \"Demo Assistant\",\n  \"company_name\": \"SuperU\",\n  \"assistant_name\": \"Ava\",\n  \"first_message\": \"Hi, thanks for taking the call.\",\n  \"voice_id\": \"90ipbRoKi4CpHXvKVtl0\",\n  \"voice_provider\": \"11labs\",\n  \"system_prompt\": \"You are a friendly assistant.\",\n  \"industry\": \"Blank Template\",\n  \"useCase\": \"Blank Template\",\n  \"form_model\": {\n    \"key\": \"value\"\n  },\n  \"assistant_data\": {\n    \"key\": \"value\"\n  },\n  \"knowledgeBase\": [\n    \"kb_abc123\"\n  ],\n  \"tools\": [\n    \"tool_01HXR9259WDZ2X3ZZKQ7HDG4C2\"\n  ],\n  \"call_forwarding\": {\n    \"key\": \"value\"\n  }\n}'"
           },
           {
             "lang": "python",
             "label": "Python",
-            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\npayload = {\n    \"type\": \"outbound\",\n    \"name\": \"Demo Assistant\",\n    \"company_name\": \"SuperU\",\n    \"assistant_name\": \"Ava\",\n    \"first_message\": \"Hi, thanks for taking the call.\",\n    \"voice\": \"90ipbRoKi4CpHXvKVtl0\",\n    \"voice_id\": \"90ipbRoKi4CpHXvKVtl0\",\n    \"voice_provider\": \"11labs\",\n    \"speed\": \"1.0\",\n    \"bg_noice\": \"false\",\n    \"backgroundNoise\": False,\n    \"script\": \"You are a friendly assistant.\",\n    \"industry\": \"Blank Template\",\n    \"useCase\": \"Blank Template\",\n    \"form_model\": {\n        \"key\": \"value\"\n    },\n    \"assistant_data\": {\n        \"key\": \"value\"\n    },\n    \"knowledgeBase\": [\n        \"kb_abc123\"\n    ],\n    \"tools\": [\n        \"tool_01HXR9259WDZ2X3ZZKQ7HDG4C2\"\n    ],\n    \"call_forwarding\": {\n        \"key\": \"value\"\n    }\n}\n\nresponse = client.agents.create_agent(**payload)\nprint(response)"
+            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\npayload = {\n    \"type\": \"outbound\",\n    \"name\": \"Demo Assistant\",\n    \"company_name\": \"SuperU\",\n    \"assistant_name\": \"Ava\",\n    \"first_message\": \"Hi, thanks for taking the call.\",\n    \"voice_id\": \"90ipbRoKi4CpHXvKVtl0\",\n    \"voice_provider\": \"11labs\",\n    \"system_prompt\": \"You are a friendly assistant.\",\n    \"industry\": \"Blank Template\",\n    \"useCase\": \"Blank Template\",\n    \"form_model\": {\n        \"key\": \"value\"\n    },\n    \"assistant_data\": {\n        \"key\": \"value\"\n    },\n    \"knowledgeBase\": [\n        \"kb_abc123\"\n    ],\n    \"tools\": [\n        \"tool_01HXR9259WDZ2X3ZZKQ7HDG4C2\"\n    ],\n    \"call_forwarding\": {\n        \"key\": \"value\"\n    }\n}\n\nresponse = client.agents.create_agent(**payload)\nprint(response)"
           }
         ]
       }
@@ -409,20 +405,6 @@
               "default": 20,
               "example": 20
             }
-          },
-          {
-            "name": "inbound_or_outbound",
-            "in": "query",
-            "description": "Optional direction filter",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "inbound",
-                "outbound"
-              ],
-              "example": "outbound"
-            }
           }
         ],
         "requestBody": {
@@ -433,7 +415,7 @@
                 "$ref": "#/components/schemas/AgentListRequest"
               },
               "example": {
-                "search_query": "sales"
+                "search_query": ""
               }
             }
           },
@@ -448,16 +430,28 @@
                   "$ref": "#/components/schemas/GenericResponse"
                 },
                 "example": {
-                  "status": "success",
-                  "agent_list": [
+                  "agents": [
                     {
-                      "vapi_assistant_id": "ag_01HXR8FM5QYCVXAK4TYFJ4AEP0",
-                      "name": "Sales Agent",
-                      "type": "outbound"
+                      "id": "699702113f3323a52636240b",
+                      "name": "Hospitality Reservation Booking Agent",
+                      "status": "active",
+                      "voice_id": "CwhRBWXzGAHq8TQ4Fs17",
+                      "industry": "Hospitality",
+                      "useCase": "Spa Reservations",
+                      "type": "inbound",
+                      "created_date": "2026-02-19",
+                      "assistant_id": "d4afb99c-fb12-40bb-8cea-9d7bba7bf176",
+                      "first_message": "Hello, this is OceanVista Resort and Spa. I can help you with bookings, changes, or any questions. How would you like me to help you today?"
                     }
                   ],
-                  "page": 1,
-                  "limit": 20
+                  "pagination": {
+                    "total_agents": 1,
+                    "current_page": 1,
+                    "total_pages": 1,
+                    "items_per_page": 1,
+                    "has_next": false,
+                    "has_previous": false
+                  }
                 }
               }
             }
@@ -482,12 +476,12 @@
           {
             "lang": "curl",
             "label": "cURL",
-            "source": "curl --request POST \\\\\n  --url https://voip-middlware.superu.ai/agent/list?page=1&limit=20&inbound_or_outbound=outbound \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY' \\\\\n  --data '{\n  \"search_query\": \"sales\"\n}'"
+            "source": "curl --request POST \\\\\n  --url https://voip-middlware.superu.ai/agent/list?page=1&limit=20 \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY' \\\\\n  --data '{\n  \"search_query\": \"\"\n}'"
           },
           {
             "lang": "python",
             "label": "Python",
-            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\npayload = {\n    \"page\": \"1\",\n    \"limit\": \"20\",\n    \"inbound_or_outbound\": \"outbound\",\n    \"search_query\": \"sales\"\n}\n\nresponse = client.agents.list(**payload)\nprint(response)"
+            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\npayload = {\n    \"page\": 1,\n    \"limit\": 20,\n    \"search_query\": \"\"\n}\n\nresponse = client.agents.list(**payload)\nprint(response)"
           }
         ]
       }
@@ -508,8 +502,8 @@
                 "$ref": "#/components/schemas/AgentUpdateNameRequest"
               },
               "example": {
-                "agent_id": "ag_01HXR8FM5QYCVXAK4TYFJ4AEP0",
-                "name": "Sales Assistant V2"
+                "agent_id": "76286489-86a8-4540-b479-b0154e474555",
+                "name": "Sales Agent"
               }
             }
           },
@@ -524,10 +518,9 @@
                   "$ref": "#/components/schemas/GenericResponse"
                 },
                 "example": {
-                  "status": "success",
-                  "agent_id": "ag_01HXR8FM5QYCVXAK4TYFJ4AEP0",
-                  "name": "Sales Assistant V2",
-                  "message": "Agent name updated"
+                  "message": "Agent name updated successfully",
+                  "agent_id": "76286489-86a8-4540-b479-b0154e474555",
+                  "name": "Sales Agent"
                 }
               }
             }
@@ -552,12 +545,12 @@
           {
             "lang": "curl",
             "label": "cURL",
-            "source": "curl --request POST \\\\\n  --url https://voip-middlware.superu.ai/agent/update/name \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY' \\\\\n  --data '{\n  \"agent_id\": \"ag_01HXR8FM5QYCVXAK4TYFJ4AEP0\",\n  \"name\": \"Sales Assistant V2\"\n}'"
+            "source": "curl --request POST \\\\\n  --url https://voip-middlware.superu.ai/agent/update/name \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY' \\\\\n  --data '{\n  \"agent_id\": \"76286489-86a8-4540-b479-b0154e474555\",\n  \"name\": \"Testinggg\"\n}'"
           },
           {
             "lang": "python",
             "label": "Python",
-            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\npayload = {\n    \"agent_id\": \"ag_01HXR8FM5QYCVXAK4TYFJ4AEP0\",\n    \"name\": \"Sales Assistant V2\"\n}\n\nresponse = client.agents.update_name(**payload)\nprint(response)"
+            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\npayload = {\n    \"agent_id\": \"76286489-86a8-4540-b479-b0154e474555\",\n    \"name\": \"Testinggg\"\n}\n\nresponse = client.agents.update_name(**payload)\nprint(response)"
           }
         ]
       }
@@ -568,7 +561,7 @@
           "Agents"
         ],
         "summary": "Delete agent",
-        "description": "Deletes an agent by object ID.",
+        "description": "Deletes an agent by ID.",
         "operationId": "deleteAgent",
         "requestBody": {
           "required": true,
@@ -578,7 +571,7 @@
                 "$ref": "#/components/schemas/AgentDeleteRequest"
               },
               "example": {
-                "agent_object_id": "66d3f3417bc4a5d5f8b7c8f4"
+                "agent_id": "76286489-86a8-4540-b479-b0154e474555"
               }
             }
           },
@@ -593,9 +586,11 @@
                   "$ref": "#/components/schemas/GenericResponse"
                 },
                 "example": {
-                  "status": "success",
-                  "agent_object_id": "66d3f3417bc4a5d5f8b7c8f4",
-                  "message": "Agent deleted"
+                  "message": "Agent deleted successfully",
+                  "deleted": true,
+                  "agent_id": "76286489-86a8-4540-b479-b0154e474555",
+                  "matched_count": 1,
+                  "modified_count": 1
                 }
               }
             }
@@ -620,12 +615,12 @@
           {
             "lang": "curl",
             "label": "cURL",
-            "source": "curl --request POST \\\\\n  --url https://voip-middlware.superu.ai/agent/delete \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY' \\\\\n  --data '{\n  \"agent_object_id\": \"66d3f3417bc4a5d5f8b7c8f4\"\n}'"
+            "source": "curl --request POST \\\\\n  --url https://voip-middlware.superu.ai/agent/delete \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY' \\\\\n  --data '{\n  \"agent_id\": \"76286489-86a8-4540-b479-b0154e474555\"\n}'"
           },
           {
             "lang": "python",
             "label": "Python",
-            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\npayload = {\n    \"agent_object_id\": \"66d3f3417bc4a5d5f8b7c8f4\"\n}\n\nresponse = client.agents.delete(**payload)\nprint(response)"
+            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\npayload = {\n    \"agent_id\": \"76286489-86a8-4540-b479-b0154e474555\"\n}\n\nresponse = client.agents.delete(**payload)\nprint(response)"
           }
         ]
       }
@@ -646,8 +641,8 @@
                 "$ref": "#/components/schemas/AgentVersionCreateRequest"
               },
               "example": {
-                "agent_id": "ag_01HXR8FM5QYCVXAK4TYFJ4AEP0",
-                "version": "v2",
+                "agent_id": "76286489-86a8-4540-b479-b0154e474555",
+                "version": "1.0.3",
                 "assistant_data": {
                   "key": "value"
                 },
@@ -674,10 +669,9 @@
                   "$ref": "#/components/schemas/GenericResponse"
                 },
                 "example": {
-                  "status": "success",
-                  "version_id": "ver_01HXR8Q2S3E4YQH0RQ5K2V7A8D",
-                  "version": "v2",
-                  "message": "Version created"
+                  "message": "Agent version created successfully",
+                  "version_id": "69f884d50c4e5a2dc72277d4",
+                  "version": "1.0.3"
                 }
               }
             }
@@ -702,12 +696,12 @@
           {
             "lang": "curl",
             "label": "cURL",
-            "source": "curl --request POST \\\\\n  --url https://voip-middlware.superu.ai/agent/version/create \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY' \\\\\n  --data '{\n  \"agent_id\": \"ag_01HXR8FM5QYCVXAK4TYFJ4AEP0\",\n  \"version\": \"v2\",\n  \"assistant_data\": {\n    \"key\": \"value\"\n  },\n  \"knowledgeBase\": [\n    \"kb_01HXRA4N5B8Q0SJC0F30Z8W0DT\"\n  ],\n  \"tools\": [\n    \"tool_01HXR9259WDZ2X3ZZKQ7HDG4C2\"\n  ],\n  \"call_forwarding\": {\n    \"key\": \"value\"\n  }\n}'"
+            "source": "curl --request POST \\\\\n  --url https://voip-middlware.superu.ai/agent/version/create \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY' \\\\\n  --data '{\n  \"agent_id\": \"76286489-86a8-4540-b479-b0154e474555\",\n  \"version\": \"1.0.3\",\n  \"assistant_data\": {\n    \"key\": \"value\"\n  },\n  \"knowledgeBase\": [\n    \"kb_01HXRA4N5B8Q0SJC0F30Z8W0DT\"\n  ],\n  \"tools\": [\n    \"tool_01HXR9259WDZ2X3ZZKQ7HDG4C2\"\n  ],\n  \"call_forwarding\": {\n    \"key\": \"value\"\n  }\n}'"
           },
           {
             "lang": "python",
             "label": "Python",
-            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\npayload = {\n    \"agent_id\": \"ag_01HXR8FM5QYCVXAK4TYFJ4AEP0\",\n    \"version\": \"v2\",\n    \"assistant_data\": {\n        \"key\": \"value\"\n    },\n    \"knowledgeBase\": [\n        \"kb_01HXRA4N5B8Q0SJC0F30Z8W0DT\"\n    ],\n    \"tools\": [\n        \"tool_01HXR9259WDZ2X3ZZKQ7HDG4C2\"\n    ],\n    \"call_forwarding\": {\n        \"key\": \"value\"\n    }\n}\n\nresponse = client.agents.create_version(**payload)\nprint(response)"
+            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\npayload = {\n    \"agent_id\": \"76286489-86a8-4540-b479-b0154e474555\",\n    \"version\": \"1.0.3\",\n    \"assistant_data\": {\n        \"key\": \"value\"\n    },\n    \"knowledgeBase\": [\n        \"kb_01HXRA4N5B8Q0SJC0F30Z8W0DT\"\n    ],\n    \"tools\": [\n        \"tool_01HXR9259WDZ2X3ZZKQ7HDG4C2\"\n    ],\n    \"call_forwarding\": {\n        \"key\": \"value\"\n    }\n}\n\nresponse = client.agents.create_version(**payload)\nprint(response)"
           }
         ]
       }
@@ -728,13 +722,13 @@
                 "$ref": "#/components/schemas/AgentVersionUpdateRequest"
               },
               "example": {
-                "agent_id": "ag_01HXR8FM5QYCVXAK4TYFJ4AEP0",
-                "version_id": "ver_01HXR8Q2S3E4YQH0RQ5K2V7A8D",
-                "version": "v2.1",
+                "agent_id": "76286489-86a8-4540-b479-b0154e474555",
+                "version_id": "69f884d50c4e5a2dc72277d4",
+                "version": "1.0.3",
                 "assistant_data": {
                   "key": "value"
                 },
-                "composio-app": {
+                "composio_app": {
                   "key": "value"
                 }
               }
@@ -751,9 +745,9 @@
                   "$ref": "#/components/schemas/GenericResponse"
                 },
                 "example": {
-                  "status": "success",
-                  "version_id": "ver_01HXR8Q2S3E4YQH0RQ5K2V7A8D",
-                  "message": "Version updated"
+                  "message": "Agent version created and deployed successfully",
+                  "version_id": "69f884d50c4e5a2dc72277d4",
+                  "version": "1.0.4"
                 }
               }
             }
@@ -778,12 +772,12 @@
           {
             "lang": "curl",
             "label": "cURL",
-            "source": "curl --request POST \\\\\n  --url https://voip-middlware.superu.ai/agent/version/update \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY' \\\\\n  --data '{\n  \"agent_id\": \"ag_01HXR8FM5QYCVXAK4TYFJ4AEP0\",\n  \"version_id\": \"ver_01HXR8Q2S3E4YQH0RQ5K2V7A8D\",\n  \"version\": \"v2.1\",\n  \"assistant_data\": {\n    \"key\": \"value\"\n  },\n  \"composio-app\": {\n    \"key\": \"value\"\n  }\n}'"
+            "source": "curl --request POST \\\\\n  --url https://voip-middlware.superu.ai/agent/version/update \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY' \\\\\n  --data '{\n  \"agent_id\": \"76286489-86a8-4540-b479-b0154e474555\",\n  \"version_id\": \"69f884d50c4e5a2dc72277d4\",\n  \"version\": \"1.0.1\",\n  \"assistant_data\": {\n    \"key\": \"value\"\n  },\n  \"composio_app\": {\n    \"key\": \"value\"\n  }\n}'"
           },
           {
             "lang": "python",
             "label": "Python",
-            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\npayload = {\n    \"agent_id\": \"ag_01HXR8FM5QYCVXAK4TYFJ4AEP0\",\n    \"version_id\": \"ver_01HXR8Q2S3E4YQH0RQ5K2V7A8D\",\n    \"version\": \"v2.1\",\n    \"assistant_data\": {\n        \"key\": \"value\"\n    },\n    \"composio-app\": {\n        \"key\": \"value\"\n    }\n}\n\nresponse = client.agents.update_version(**payload)\nprint(response)"
+            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\npayload = {\n    \"agent_id\": \"76286489-86a8-4540-b479-b0154e474555\",\n    \"version_id\": \"69f884d50c4e5a2dc72277d4\",\n    \"version\": \"1.0.1\",\n    \"assistant_data\": {\n        \"key\": \"value\"\n    },\n    \"composio_app\": {\n        \"key\": \"value\"\n    }\n}\n\nresponse = client.agents.update_version(**payload)\nprint(response)"
           }
         ]
       }
@@ -794,7 +788,7 @@
           "Agent Versions"
         ],
         "summary": "Get agent version",
-        "description": "Fetches one version for an agent by version label.",
+        "description": "Fetches one version for an agent by version ID.",
         "operationId": "getAgentVersion",
         "requestBody": {
           "required": true,
@@ -804,8 +798,8 @@
                 "$ref": "#/components/schemas/AgentVersionGetRequest"
               },
               "example": {
-                "agent_id": "ag_01HXR8FM5QYCVXAK4TYFJ4AEP0",
-                "version": "v2"
+                "agent_id": "04cf74f7-019b-4c3d-883c-610a42b32bc4",
+                "version": "1.0.0"
               }
             }
           },
@@ -820,11 +814,221 @@
                   "$ref": "#/components/schemas/GenericResponse"
                 },
                 "example": {
+                  "version_id": "69c228b11e62cb42009fe445",
+                  "agent_id": "04cf74f7-019b-4c3d-883c-610a42b32bc4",
+                  "version": "1.0.1",
+                  "assistant_config": {
+                    "id": "04cf74f7-019b-4c3d-883c-610a42b32bc4",
+                    "orgId": "1d23cc8c-8ccb-4a19-a1e8-d2dc72e8848d",
+                    "name": "Acme Dental Clinic - AI Receptionist",
+                    "voice": {
+                      "model": "eleven_turbo_v2_5",
+                      "voiceId": "EXAVITQu4vr4xnSDxMaL",
+                      "provider": "11labs"
+                    },
+                    "model": {
+                      "model": "openai/gpt-oss-120b",
+                      "provider": "groq",
+                      "messages": [
+                        {
+                          "role": "system",
+                          "content": "You are Emma, the warm and professional AI receptionist for Acme Dental Clinic..."
+                        }
+                      ]
+                    },
+                    "firstMessage": "Thank you for calling Acme Dental Clinic! This is Emma. How can I help you today?",
+                    "transcriber": {
+                      "model": "nova-2",
+                      "language": "en",
+                      "provider": "deepgram"
+                    },
+                    "analysisPlan": {
+                      "summaryPlan": {
+                        "messages": [
+                          {
+                            "role": "system",
+                            "content": "Create a concise call summary and structured details..."
+                          }
+                        ]
+                      }
+                    },
+                    "messagePlan": {
+                      "idleMessages": [
+                        "Are you there?",
+                        "Can you hear me?",
+                        "Should I continue?"
+                      ],
+                      "idleMessageMaxSpokenCount": 2,
+                      "idleTimeoutSeconds": 5
+                    },
+                    "server": {
+                      "url": "https://voip-middlware.superu.ai/vapi/webhook",
+                      "timeoutSeconds": 20
+                    }
+                  },
+                  "knowledge_base": {},
+                  "tools": [],
+                  "composio_app": {},
+                  "call_forwarding": null,
+                  "created_at": "2026-03-24 06:01:21"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "501": {
+            "$ref": "#/components/responses/NotImplemented"
+          }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "curl",
+            "label": "cURL",
+            "source": "curl --request POST \\\\\n  --url https://voip-middlware.superu.ai/agent/version/get \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY' \\\\\n  --data '{\n  \"agent_id\": \"04cf74f7-019b-4c3d-883c-610a42b32bc4\",\n  \"version\": \"69f884d50c4e5a2dc72277d4\"\n}'"
+          },
+          {
+            "lang": "python",
+            "label": "Python",
+            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\npayload = {\n    \"agent_id\": \"04cf74f7-019b-4c3d-883c-610a42b32bc4\",\n    \"version\": \"69f884d50c4e5a2dc72277d4\"\n}\n\nresponse = client.agents.get_version(**payload)\nprint(response)"
+          }
+        ]
+      }
+    },
+    "/agent/version/list": {
+      "post": {
+        "tags": [
+          "Agent Versions"
+        ],
+        "summary": "List agent versions",
+        "description": "Lists all versions for an agent.",
+        "operationId": "listAgentVersions",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AgentVersionListRequest"
+              },
+              "example": {
+                "agent_id": "04cf74f7-019b-4c3d-883c-610a42b32bc4"
+              }
+            }
+          },
+          "description": "Request body for List agent versions."
+        },
+        "responses": {
+          "200": {
+            "description": "Version list",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenericResponse"
+                },
+                "example": [
+                  {
+                    "version_id": "69c228845c764b0c5ef71944",
+                    "agent_id": "04cf74f7-019b-4c3d-883c-610a42b32bc4",
+                    "version": "1.0.0",
+                    "assistant_config": "{...}",
+                    "knowledge_base": {},
+                    "tools": [],
+                    "call_forwarding": null,
+                    "created_at": "2026-03-24 06:00:36",
+                    "deployed": false
+                  },
+                  {
+                    "version_id": "69c228b11e62cb42009fe445",
+                    "agent_id": "04cf74f7-019b-4c3d-883c-610a42b32bc4",
+                    "version": "1.0.1",
+                    "assistant_config": "{...}",
+                    "knowledge_base": {},
+                    "tools": [],
+                    "call_forwarding": null,
+                    "created_at": "2026-03-24 06:01:21",
+                    "deployed": true
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "501": {
+            "$ref": "#/components/responses/NotImplemented"
+          }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "curl",
+            "label": "cURL",
+            "source": "curl --request POST \\\\\n  --url https://voip-middlware.superu.ai/agent/version/list \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY' \\\\\n  --data '{\n  \"agent_id\": \"04cf74f7-019b-4c3d-883c-610a42b32bc4\"\n}'"
+          },
+          {
+            "lang": "python",
+            "label": "Python",
+            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\npayload = {\n    \"agent_id\": \"04cf74f7-019b-4c3d-883c-610a42b32bc4\"\n}\n\nresponse = client.agents.list_versions(**payload)\nprint(response)"
+          }
+        ]
+      }
+    },
+    "/agent/version/deploy": {
+      "post": {
+        "tags": [
+          "Agent Versions"
+        ],
+        "summary": "Deploy agent version",
+        "description": "Deploys a version for an agent.",
+        "operationId": "deployAgentVersion",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AgentVersionDeployRequest"
+              },
+              "example": {
+                "agent_id": "04cf74f7-019b-4c3d-883c-610a42b32bc4",
+                "version": "1.0.0"
+              }
+            }
+          },
+          "description": "Request body for Deploy agent version."
+        },
+        "responses": {
+          "200": {
+            "description": "Version deployed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenericResponse"
+                },
+                "example": {
                   "status": "success",
-                  "agent_id": "ag_01HXR8FM5QYCVXAK4TYFJ4AEP0",
-                  "version": "v2",
-                  "assistant_data": {
-                    "first_message": "Hello from version 2"
+                  "message": "Agent version deployed successfully",
+                  "details": {
+                    "version_id": "1.0.0",
+                    "agent_id": "04cf74f7-019b-4c3d-883c-610a42b32bc4"
                   }
                 }
               }
@@ -850,157 +1054,12 @@
           {
             "lang": "curl",
             "label": "cURL",
-            "source": "curl --request POST \\\\\n  --url https://voip-middlware.superu.ai/agent/version/get \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY' \\\\\n  --data '{\n  \"agent_id\": \"ag_01HXR8FM5QYCVXAK4TYFJ4AEP0\",\n  \"version\": \"v2\"\n}'"
+            "source": "curl --request POST \\\\\n  --url https://voip-middlware.superu.ai/agent/version/deploy \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY' \\\\\n  --data '{\n  \"agent_id\": \"04cf74f7-019b-4c3d-883c-610a42b32bc4\",\n  \"version\": \"1.0.0\"\n}'"
           },
           {
             "lang": "python",
             "label": "Python",
-            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\npayload = {\n    \"agent_id\": \"ag_01HXR8FM5QYCVXAK4TYFJ4AEP0\",\n    \"version\": \"v2\"\n}\n\nresponse = client.agents.get_version(**payload)\nprint(response)"
-          }
-        ]
-      }
-    },
-    "/agent/version/list": {
-      "post": {
-        "tags": [
-          "Agent Versions"
-        ],
-        "summary": "List agent versions",
-        "description": "Lists all versions for an agent.",
-        "operationId": "listAgentVersions",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AgentVersionListRequest"
-              },
-              "example": {
-                "agent_id": "ag_01HXR8FM5QYCVXAK4TYFJ4AEP0"
-              }
-            }
-          },
-          "description": "Request body for List agent versions."
-        },
-        "responses": {
-          "200": {
-            "description": "Version list",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericResponse"
-                },
-                "example": {
-                  "status": "success",
-                  "versions": [
-                    {
-                      "version_id": "ver_01HXR8Q2S3E4YQH0RQ5K2V7A8D",
-                      "version": "v2"
-                    },
-                    {
-                      "version_id": "ver_01HXR8Q2S3E4YQH0RQ5K2V7A1N",
-                      "version": "v1"
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "400": {
-            "$ref": "#/components/responses/BadRequest"
-          },
-          "401": {
-            "$ref": "#/components/responses/Unauthorized"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFound"
-          },
-          "500": {
-            "$ref": "#/components/responses/InternalServerError"
-          },
-          "501": {
-            "$ref": "#/components/responses/NotImplemented"
-          }
-        },
-        "x-codeSamples": [
-          {
-            "lang": "curl",
-            "label": "cURL",
-            "source": "curl --request POST \\\\\n  --url https://voip-middlware.superu.ai/agent/version/list \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY' \\\\\n  --data '{\n  \"agent_id\": \"ag_01HXR8FM5QYCVXAK4TYFJ4AEP0\"\n}'"
-          },
-          {
-            "lang": "python",
-            "label": "Python",
-            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\npayload = {\n    \"agent_id\": \"ag_01HXR8FM5QYCVXAK4TYFJ4AEP0\"\n}\n\nresponse = client.agents.list_versions(**payload)\nprint(response)"
-          }
-        ]
-      }
-    },
-    "/agent/version/deploy": {
-      "post": {
-        "tags": [
-          "Agent Versions"
-        ],
-        "summary": "Deploy agent version",
-        "description": "Deploys a version for an agent.",
-        "operationId": "deployAgentVersion",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AgentVersionDeployRequest"
-              },
-              "example": {
-                "agent_id": "ag_01HXR8FM5QYCVXAK4TYFJ4AEP0",
-                "version_id": "ver_01HXR8Q2S3E4YQH0RQ5K2V7A8D"
-              }
-            }
-          },
-          "description": "Request body for Deploy agent version."
-        },
-        "responses": {
-          "200": {
-            "description": "Version deployed",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericResponse"
-                },
-                "example": {
-                  "status": "success",
-                  "version_id": "ver_01HXR8Q2S3E4YQH0RQ5K2V7A8D",
-                  "message": "Version deployed"
-                }
-              }
-            }
-          },
-          "400": {
-            "$ref": "#/components/responses/BadRequest"
-          },
-          "401": {
-            "$ref": "#/components/responses/Unauthorized"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFound"
-          },
-          "500": {
-            "$ref": "#/components/responses/InternalServerError"
-          },
-          "501": {
-            "$ref": "#/components/responses/NotImplemented"
-          }
-        },
-        "x-codeSamples": [
-          {
-            "lang": "curl",
-            "label": "cURL",
-            "source": "curl --request POST \\\\\n  --url https://voip-middlware.superu.ai/agent/version/deploy \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY' \\\\\n  --data '{\n  \"agent_id\": \"ag_01HXR8FM5QYCVXAK4TYFJ4AEP0\",\n  \"version_id\": \"ver_01HXR8Q2S3E4YQH0RQ5K2V7A8D\"\n}'"
-          },
-          {
-            "lang": "python",
-            "label": "Python",
-            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\npayload = {\n    \"agent_id\": \"ag_01HXR8FM5QYCVXAK4TYFJ4AEP0\",\n    \"version_id\": \"ver_01HXR8Q2S3E4YQH0RQ5K2V7A8D\"\n}\n\nresponse = client.agents.deploy_version(**payload)\nprint(response)"
+            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\npayload = {\n    \"agent_id\": \"04cf74f7-019b-4c3d-883c-610a42b32bc4\",\n    \"version\": \"1.0.0\"\n}\n\nresponse = client.agents.deploy_version(**payload)\nprint(response)"
           }
         ]
       }
@@ -1021,15 +1080,26 @@
                 "schema": {
                   "$ref": "#/components/schemas/GenericResponse"
                 },
-                "example": {
-                  "status": "success",
-                  "phone_numbers": [
-                    {
-                      "phoneNumberId": "pn_123",
-                      "number": "+14155552671"
-                    }
-                  ]
-                }
+                "example": [
+                  {
+                    "number": "918031450739",
+                    "region": "Bangalore, INDIA",
+                    "country": "India",
+                    "monthly_rental_rate": "3.12500"
+                  },
+                  {
+                    "number": "17752183694",
+                    "region": "Nevada, UNITED STATES",
+                    "country": "United States",
+                    "monthly_rental_rate": "0.50000"
+                  },
+                  {
+                    "number": "18332234367",
+                    "region": "New Jersey, UNITED STATES",
+                    "country": "United States",
+                    "monthly_rental_rate": "1.00000"
+                  }
+                ]
               }
             }
           },
@@ -1138,16 +1208,6 @@
             }
           },
           {
-            "name": "call_uuid",
-            "in": "query",
-            "description": "Call UUID filter",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "example": "aa39db9f-d9f5-45f4-b4fc-9fe49f14f9ed"
-            }
-          },
-          {
             "name": "campaign_id",
             "in": "query",
             "description": "Campaign filter",
@@ -1177,16 +1237,34 @@
                   "$ref": "#/components/schemas/GenericResponse"
                 },
                 "example": {
-                  "status": "success",
-                  "logs": [
-                    {
-                      "call_uuid": "e8f87167-d4fd-44f2-b03a-24cb600f86f2",
-                      "to": "+14155552671",
-                      "status": "completed"
-                    }
-                  ],
-                  "page": 1,
-                  "limit": 20
+                  "success": true,
+                  "data": {
+                    "calls": [
+                      {
+                        "call_uuid": "e8f87167-d4fd-44f2-b03a-24cb600f86f2",
+                        "assistant_id": "ag_01HXR8FM5QYCVXAK4TYFJ4AEP0",
+                        "campaign_id": "demo_call",
+                        "customer_name": "Ava",
+                        "customer_id": "cust_123",
+                        "to": "+14155552671",
+                        "from": "+14155550000",
+                        "status": "completed",
+                        "duration": 124,
+                        "cost": 0.42,
+                        "recording_url": "https://example.com/recordings/e8f87167-d4fd-44f2-b03a-24cb600f86f2.mp3",
+                        "transcript": "Agent: Hi Ava, thanks for taking the call.",
+                        "analysis": {
+                          "summary": "Customer confirmed interest in a follow-up.",
+                          "sentiment": "positive"
+                        },
+                        "created_at": "2026-01-15T10:30:00Z"
+                      }
+                    ],
+                    "total": 1,
+                    "total_cost": 0.42,
+                    "avg_duration": 124,
+                    "total_duration": 124
+                  }
                 }
               }
             }
@@ -1216,7 +1294,7 @@
           {
             "lang": "python",
             "label": "Python",
-            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\npayload = {\n    \"assistant_id\": \"all\",\n    \"limit\": \"20\",\n    \"page\": \"1\",\n    \"before\": \"2026-02-01T00:00:00Z\",\n    \"after\": \"2026-01-01T00:00:00Z\",\n    \"status\": \"completed\",\n    \"campaign_id\": \"demo_call\",\n    \"search_query\": \"Ava\"\n}\n\nresponse = client.call_logs.get_logs(**payload)\nprint(response)"
+            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\nresponse = client.call_logs.get_logs(\n    assistant_id=\"all\",\n    limit=20,\n    page=1,\n    before=\"2026-02-01T00:00:00Z\",\n    after=\"2026-01-01T00:00:00Z\",\n    status=\"completed\",\n    campaign_id=\"demo_call\",\n    search_query=\"Ava\"\n)\nprint(response)"
           }
         ]
       }
@@ -1237,24 +1315,30 @@
                 "$ref": "#/components/schemas/ToolCreateRequest"
               },
               "example": {
-                "name": "check-user-status",
-                "description": "Check if a user exists in the database",
-                "parameters": {
+                "name": "Tool 1",
+                "type": "apiRequest",
+                "url": "https://www.google.com",
+                "description": "hehe",
+                "method": "GET",
+                "body": {
                   "type": "object",
                   "properties": {
-                    "email": {
+                    "new": {
                       "type": "string",
-                      "description": "User email"
+                      "description": "2"
                     }
-                  },
-                  "required": [
-                    "email"
-                  ]
+                  }
                 },
-                "tool_url": "/api/check-user",
-                "tool_url_domain": "https://your-api.com",
-                "type": "http",
-                "async_": false
+                "headers": {
+                  "type": "object",
+                  "properties": {
+                    "new": {
+                      "type": "string",
+                      "description": "2"
+                    }
+                  }
+                },
+                "timeoutSeconds": 20
               }
             }
           },
@@ -1269,9 +1353,33 @@
                   "$ref": "#/components/schemas/GenericResponse"
                 },
                 "example": {
-                  "status": "success",
-                  "tool_id": "tool_01HXR9259WDZ2X3ZZKQ7HDG4C2",
-                  "message": "Tool created"
+                  "tool_uuid": "0a425650-60ac-4fd4-9554-5579844ce3e5",
+                  "user_id": "user_32UrXxvrVxWSYp1dGLsPdElDtRt",
+                  "type": "apiRequest",
+                  "createdAt": "2026-05-05T06:20:17.548305",
+                  "updatedAt": "2026-05-05T06:20:17.548307",
+                  "method": "GET",
+                  "url": "https://www.google.com",
+                  "name": "Tool 1",
+                  "description": "hehe",
+                  "timeoutSeconds": 20,
+                  "body": "{...}",
+                  "headers": "{...}",
+                  "messages": [],
+                  "backoffPlan": {
+                    "type": "fixed",
+                    "maxRetries": 0,
+                    "baseDelaySeconds": 1,
+                    "excludedStatusCodes": [
+                      400,
+                      401,
+                      403,
+                      404
+                    ]
+                  },
+                  "variableExtractionPlan": null,
+                  "rejectionPlan": null,
+                  "_id": "69f98c2185578cdac8d33010"
                 }
               }
             }
@@ -1296,12 +1404,12 @@
           {
             "lang": "curl",
             "label": "cURL",
-            "source": "curl --request POST \\\\\n  --url https://voip-middlware.superu.ai/tool \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY' \\\\\n  --data '{\n  \"name\": \"check-user-status\",\n  \"description\": \"Check if a user exists in the database\",\n  \"parameters\": {\n    \"type\": \"object\",\n    \"properties\": {\n      \"email\": {\n        \"type\": \"string\",\n        \"description\": \"User email\"\n      }\n    },\n    \"required\": [\n      \"email\"\n    ]\n  },\n  \"tool_url\": \"/api/check-user\",\n  \"tool_url_domain\": \"https://your-api.com\",\n  \"type\": \"http\",\n  \"async_\": false\n}'"
+            "source": "curl --request POST \\\\\n  --url https://voip-middlware.superu.ai/tool \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY' \\\\\n  --data '{\n  \"name\": \"Tool 1\",\n  \"type\": \"apiRequest\",\n  \"url\": \"https://www.google.com\",\n  \"description\": \"hehe\",\n  \"method\": \"GET\",\n  \"body\": {\n    \"type\": \"object\",\n    \"properties\": {\n      \"new\": {\n        \"type\": \"string\",\n        \"description\": \"2\"\n      }\n    }\n  },\n  \"headers\": {\n    \"type\": \"object\",\n    \"properties\": {\n      \"new\": {\n        \"type\": \"string\",\n        \"description\": \"2\"\n      }\n    }\n  },\n  \"timeoutSeconds\": 20\n}'"
           },
           {
             "lang": "python",
             "label": "Python",
-            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\npayload = {\n    \"name\": \"check-user-status\",\n    \"description\": \"Check if a user exists in the database\",\n    \"parameters\": {\n        \"type\": \"object\",\n        \"properties\": {\n            \"email\": {\n                \"type\": \"string\",\n                \"description\": \"User email\"\n            }\n        },\n        \"required\": [\n            \"email\"\n        ]\n    },\n    \"tool_url\": \"/api/check-user\",\n    \"tool_url_domain\": \"https://your-api.com\",\n    \"type\": \"http\",\n    \"async_\": False\n}\n\nresponse = client.tools.create(**payload)\nprint(response)"
+            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\npayload = {\n    \"name\": \"Tool 1\",\n    \"type\": \"apiRequest\",\n    \"url\": \"https://www.google.com\",\n    \"description\": \"hehe\",\n    \"method\": \"GET\",\n    \"body\": {\n        \"type\": \"object\",\n        \"properties\": {\n            \"new\": {\n                \"type\": \"string\",\n                \"description\": \"2\"\n            }\n        }\n    },\n    \"headers\": {\n        \"type\": \"object\",\n        \"properties\": {\n            \"new\": {\n                \"type\": \"string\",\n                \"description\": \"2\"\n            }\n        }\n    },\n    \"timeoutSeconds\": 20\n}\n\nresponse = client.tools.create(**payload)\nprint(response)"
           }
         ]
       }
@@ -1324,7 +1432,7 @@
               "example": {
                 "page": 1,
                 "per_page": 20,
-                "type": "http"
+                "type": "apiRequest"
               }
             }
           },
@@ -1339,84 +1447,43 @@
                   "$ref": "#/components/schemas/GenericResponse"
                 },
                 "example": {
-                  "status": "success",
-                  "tool_list": [
+                  "success": true,
+                  "tools": [
                     {
-                      "tool_id": "tool_01HXR9259WDZ2X3ZZKQ7HDG4C2",
-                      "name": "check-user-status",
-                      "type": "http"
+                      "_id": "69f98c2185578cdac8d33010",
+                      "tool_uuid": "0a425650-60ac-4fd4-9554-5579844ce3e2",
+                      "user_id": "user_32UrXxvrVxWSYp1dGLsPdEldtRt",
+                      "type": "apiRequest",
+                      "createdAt": "2026-05-05T06:20:17.548000",
+                      "updatedAt": "2026-05-05T06:20:17.548000",
+                      "method": "GET",
+                      "url": "https://www.google.com",
+                      "name": "Tool 1",
+                      "description": "api request",
+                      "timeoutSeconds": 20,
+                      "body": {},
+                      "headers": {},
+                      "messages": [],
+                      "backoffPlan": {
+                        "type": "fixed",
+                        "maxRetries": 0,
+                        "baseDelaySeconds": 1,
+                        "excludedStatusCodes": [
+                          400,
+                          401,
+                          403,
+                          404
+                        ]
+                      },
+                      "variableExtractionPlan": null,
+                      "rejectionPlan": null
                     }
                   ],
-                  "page": 1,
-                  "per_page": 20
-                }
-              }
-            }
-          },
-          "400": {
-            "$ref": "#/components/responses/BadRequest"
-          },
-          "401": {
-            "$ref": "#/components/responses/Unauthorized"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFound"
-          },
-          "500": {
-            "$ref": "#/components/responses/InternalServerError"
-          },
-          "501": {
-            "$ref": "#/components/responses/NotImplemented"
-          }
-        },
-        "x-codeSamples": [
-          {
-            "lang": "curl",
-            "label": "cURL",
-            "source": "curl --request POST \\\\\n  --url https://voip-middlware.superu.ai/tool/list \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY' \\\\\n  --data '{\n  \"page\": 1,\n  \"per_page\": 20,\n  \"type\": \"http\"\n}'"
-          },
-          {
-            "lang": "python",
-            "label": "Python",
-            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\npayload = {\n    \"page\": 1,\n    \"per_page\": 20,\n    \"type\": \"http\"\n}\n\nresponse = client.tools.list(**payload)\nprint(response)"
-          }
-        ]
-      }
-    },
-    "/tool/{tool_id}": {
-      "get": {
-        "tags": [
-          "Tools"
-        ],
-        "summary": "Get tool",
-        "description": "Fetches one tool by ID.",
-        "operationId": "getTool",
-        "parameters": [
-          {
-            "name": "tool_id",
-            "in": "path",
-            "description": "Tool ID",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "example": "tool_01HXR9259WDZ2X3ZZKQ7HDG4C2"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Tool details",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericResponse"
-                },
-                "example": {
-                  "status": "success",
-                  "tool": {
-                    "tool_id": "tool_01HXR9259WDZ2X3ZZKQ7HDG4C2",
-                    "name": "check-user-status",
-                    "description": "Check if a user exists"
+                  "pagination": {
+                    "total": 1,
+                    "page": 1,
+                    "per_page": 20,
+                    "total_pages": 1
                   }
                 }
               }
@@ -1442,22 +1509,24 @@
           {
             "lang": "curl",
             "label": "cURL",
-            "source": "curl --request GET \\\\\n  --url https://voip-middlware.superu.ai/tool/tool_01HXR9259WDZ2X3ZZKQ7HDG4C2 \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY'"
+            "source": "curl --request POST \\\\\n  --url https://voip-middlware.superu.ai/tool/list \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY' \\\\\n  --data '{\n  \"page\": 1,\n  \"per_page\": 20,\n  \"type\": \"apiRequest\"\n}'"
           },
           {
             "lang": "python",
             "label": "Python",
-            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\npayload = {\n    \"tool_id\": \"tool_01HXR9259WDZ2X3ZZKQ7HDG4C2\"\n}\n\nresponse = client.tools.get(**payload)\nprint(response)"
+            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\npayload = {\n    \"page\": 1,\n    \"per_page\": 20,\n    \"type\": \"apiRequest\"\n}\n\nresponse = client.tools.list(**payload)\nprint(response)"
           }
         ]
-      },
-      "patch": {
+      }
+    },
+    "/tool/{tool_id}": {
+      "post": {
         "tags": [
           "Tools"
         ],
-        "summary": "Update tool",
-        "description": "Updates fields on an existing tool.",
-        "operationId": "updateTool",
+        "summary": "Get tool",
+        "description": "Fetches one tool by ID.",
+        "operationId": "getTool",
         "parameters": [
           {
             "name": "tool_id",
@@ -1466,44 +1535,47 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "tool_01HXR9259WDZ2X3ZZKQ7HDG4C2"
+              "default": "0a425650-60ac-4fd4-9554-5579844ce3e5",
+              "example": "0a425650-60ac-4fd4-9554-5579844ce3e5"
             }
           }
         ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ToolUpdateRequest"
-              },
-              "example": {
-                "name": "check-user-status-v2",
-                "description": "Check if a user exists in CRM",
-                "parameters": {
-                  "key": "value"
-                },
-                "tool_url": "/api/check-user",
-                "tool_url_domain": "https://your-api.com",
-                "type": "http",
-                "async_": false
-              }
-            }
-          },
-          "description": "Request body for Update tool."
-        },
         "responses": {
           "200": {
-            "description": "Tool updated",
+            "description": "Tool details",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GenericResponse"
                 },
                 "example": {
-                  "status": "success",
-                  "tool_id": "tool_01HXR9259WDZ2X3ZZKQ7HDG4C2",
-                  "message": "Tool updated"
+                  "_id": "69f98c2185578cdac8d33014",
+                  "tool_uuid": "0a425650-60ac-4fd4-9554-5579844ce3e7",
+                  "user_id": "user_32UrXxvrVxWSYp1dGLsPdElDtRu",
+                  "type": "apiRequest",
+                  "createdAt": "2026-05-05T06:20:17.548000",
+                  "updatedAt": "2026-05-05T06:20:17.548000",
+                  "method": "GET",
+                  "url": "https://www.google.com",
+                  "name": "New Tool",
+                  "description": "new",
+                  "timeoutSeconds": 20,
+                  "body": {},
+                  "headers": {},
+                  "messages": [],
+                  "backoffPlan": {
+                    "type": "fixed",
+                    "maxRetries": 0,
+                    "baseDelaySeconds": 1,
+                    "excludedStatusCodes": [
+                      400,
+                      401,
+                      403,
+                      404
+                    ]
+                  },
+                  "variableExtractionPlan": null,
+                  "rejectionPlan": null
                 }
               }
             }
@@ -1528,12 +1600,12 @@
           {
             "lang": "curl",
             "label": "cURL",
-            "source": "curl --request PATCH \\\\\n  --url https://voip-middlware.superu.ai/tool/tool_01HXR9259WDZ2X3ZZKQ7HDG4C2 \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY' \\\\\n  --data '{\n  \"name\": \"check-user-status-v2\",\n  \"description\": \"Check if a user exists in CRM\",\n  \"parameters\": {\n    \"key\": \"value\"\n  },\n  \"tool_url\": \"/api/check-user\",\n  \"tool_url_domain\": \"https://your-api.com\",\n  \"type\": \"http\",\n  \"async_\": false\n}'"
+            "source": "curl --request POST \\\\\n  --url https://voip-middlware.superu.ai/tool/0a425650-60ac-4fd4-9554-5579844ce3e5 \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY'"
           },
           {
             "lang": "python",
             "label": "Python",
-            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\npayload = {\n    \"tool_id\": \"tool_01HXR9259WDZ2X3ZZKQ7HDG4C2\",\n    \"name\": \"check-user-status-v2\",\n    \"description\": \"Check if a user exists in CRM\",\n    \"parameters\": {\n        \"key\": \"value\"\n    },\n    \"tool_url\": \"/api/check-user\",\n    \"tool_url_domain\": \"https://your-api.com\",\n    \"type\": \"http\",\n    \"async_\": False\n}\n\nresponse = client.tools.update(**payload)\nprint(response)"
+            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\ntool_id = \"0a425650-60ac-4fd4-9554-5579844ce3e5\"\n\nresponse = client.tools.get(tool_id)\nprint(response)"
           }
         ]
       },
@@ -1602,6 +1674,134 @@
         ]
       }
     },
+    "/tool/update/{tool_id}": {
+      "post": {
+        "tags": [
+          "Tools"
+        ],
+        "summary": "Update tool",
+        "description": "Updates fields on an existing tool.",
+        "operationId": "updateTool",
+        "parameters": [
+          {
+            "name": "tool_id",
+            "in": "path",
+            "description": "Tool ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "0a425650-60ac-4fd4-9554-5579844ce3e5",
+              "example": "0a425650-60ac-4fd4-9554-5579844ce3e5"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ToolUpdateRequest"
+              },
+              "example": {
+                "name": "Tool 1",
+                "type": "apiRequest",
+                "url": "https://www.google.com",
+                "description": "hehe",
+                "method": "GET",
+                "body": {
+                  "type": "object",
+                  "properties": {
+                    "new": {
+                      "type": "string",
+                      "description": "2"
+                    }
+                  }
+                },
+                "headers": {
+                  "type": "object",
+                  "properties": {
+                    "new": {
+                      "type": "string",
+                      "description": "2"
+                    }
+                  }
+                },
+                "timeoutSeconds": 20
+              }
+            }
+          },
+          "description": "Request body for Update tool."
+        },
+        "responses": {
+          "200": {
+            "description": "Tool updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenericResponse"
+                },
+                "example": {
+                  "_id": "69f98c2185578cdac8d33015",
+                  "tool_uuid": "0a425650-60ac-4fd4-9554-5579844ce3e8",
+                  "user_id": "user_32UrXxvrVxWSYp1dGLsPdElDtRv",
+                  "type": "apiRequest",
+                  "createdAt": "2026-05-05T06:20:17.548000",
+                  "updatedAt": "2026-05-05T07:58:28.020000",
+                  "method": "GET",
+                  "url": "https://www.google.com",
+                  "name": "Tool 1",
+                  "description": "hehe",
+                  "timeoutSeconds": 20,
+                  "body": {},
+                  "headers": {},
+                  "messages": [],
+                  "backoffPlan": {
+                    "type": "fixed",
+                    "maxRetries": 0,
+                    "baseDelaySeconds": 1,
+                    "excludedStatusCodes": [
+                      400,
+                      401,
+                      403,
+                      404
+                    ]
+                  },
+                  "variableExtractionPlan": null,
+                  "rejectionPlan": null
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "501": {
+            "$ref": "#/components/responses/NotImplemented"
+          }
+        },
+        "x-codeSamples": [
+          {
+            "lang": "curl",
+            "label": "cURL",
+            "source": "curl --request POST \\\\\n  --url https://voip-middlware.superu.ai/tool/update/0a425650-60ac-4fd4-9554-5579844ce3e5 \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY' \\\\\n  --data '{\n  \"name\": \"Tool 1\",\n  \"type\": \"apiRequest\",\n  \"url\": \"https://www.google.com\",\n  \"description\": \"hehe\",\n  \"method\": \"GET\",\n  \"body\": {\n    \"type\": \"object\",\n    \"properties\": {\n      \"new\": {\n        \"type\": \"string\",\n        \"description\": \"2\"\n      }\n    }\n  },\n  \"headers\": {\n    \"type\": \"object\",\n    \"properties\": {\n      \"new\": {\n        \"type\": \"string\",\n        \"description\": \"2\"\n      }\n    }\n  },\n  \"timeoutSeconds\": 20\n}'"
+          },
+          {
+            "lang": "python",
+            "label": "Python",
+            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\ntool_id = \"0a425650-60ac-4fd4-9554-5579844ce3e5\"\n\npayload = {\n    \"name\": \"Tool 1\",\n    \"type\": \"apiRequest\",\n    \"url\": \"https://www.google.com\",\n    \"description\": \"hehe\",\n    \"method\": \"GET\",\n    \"body\": {\n        \"type\": \"object\",\n        \"properties\": {\n            \"new\": {\n                \"type\": \"string\",\n                \"description\": \"2\"\n            }\n        }\n    },\n    \"headers\": {\n        \"type\": \"object\",\n        \"properties\": {\n            \"new\": {\n                \"type\": \"string\",\n                \"description\": \"2\"\n            }\n        }\n    },\n    \"timeoutSeconds\": 20\n}\n\nresponse = client.tools.update(tool_id, **payload)\nprint(response)"
+          }
+        ]
+      }
+    },
     "/folder/create": {
       "post": {
         "tags": [
@@ -1634,9 +1834,21 @@
                   "$ref": "#/components/schemas/GenericResponse"
                 },
                 "example": {
-                  "status": "success",
-                  "folder_id": "fld_01HXR9A3RWQXTQED0KH43WSYH1",
-                  "message": "Folder created"
+                  "success": true,
+                  "folder": {
+                    "folder_id": "25388237-72ba-46a9-b8b5-f0341939775c",
+                    "user_id": "user_32UrXxvrVxWSYp1dGLsPdElDtRu",
+                    "name": "Outbound Agents",
+                    "description": "Sales and support",
+                    "agent_ids": [],
+                    "created_at": {
+                      "$date": "2026-05-05T08:03:05.855Z"
+                    },
+                    "updated_at": {
+                      "$date": "2026-05-05T08:03:05.855Z"
+                    },
+                    "_id": "69f9a4393fd42c4dfc2aaaa9"
+                  }
                 }
               }
             }
@@ -1703,15 +1915,55 @@
                   "$ref": "#/components/schemas/GenericResponse"
                 },
                 "example": {
-                  "status": "success",
-                  "folder_list": [
+                  "success": true,
+                  "folders": [
                     {
-                      "folder_id": "fld_01HXR9A3RWQXTQED0KH43WSYH1",
-                      "folder_name": "Outbound Agents"
+                      "_id": "69f9a4393fd42c4dfc2aaaa9",
+                      "folder_id": "25388237-72ba-46a9-b8b5-f0341939775c",
+                      "user_id": "user_32UrXxvrVxWSYp1dGLsPdElDtRu",
+                      "name": "Outbound Agents",
+                      "description": "Sales and support",
+                      "agent_ids": [],
+                      "created_at": {
+                        "$date": "2026-05-05T08:03:05.855Z"
+                      },
+                      "updated_at": {
+                        "$date": "2026-05-05T08:03:05.855Z"
+                      },
+                      "agent_count": 0
+                    },
+                    {
+                      "_id": "698b090f0cc08f3e477484f6",
+                      "folder_id": "a3740204-726f-4547-b0f8-8831a5147207",
+                      "user_id": "user_32UrXxvrVxWSYp1dGLsPdElDtRu",
+                      "name": "Template agents",
+                      "description": "",
+                      "agent_ids": [
+                        "fad523e2-2645-4bc0-87ad-2b1727b1a939",
+                        "f0a578ee-a48e-4731-93e1-bc7e3bf001c5",
+                        "061ea565-3659-4ce6-936a-bc3ceac3099f",
+                        "0fa77b60-25f9-4ac2-8b3f-6222dab19936",
+                        "1baff16e-22fe-4091-b6ac-62356971a6e9",
+                        "42f5f790-f0d8-4e6b-a55d-b68d727dd017",
+                        "2afd255b-3166-415c-b823-9c21500dac0b",
+                        "d4afb99c-fb12-40bb-8cea-9d7bba7bf177",
+                        "856178f3-fecc-41e4-9576-c02f343ba476"
+                      ],
+                      "created_at": {
+                        "$date": "2026-02-10T10:31:43.777Z"
+                      },
+                      "updated_at": {
+                        "$date": "2026-02-19T12:29:10.978Z"
+                      },
+                      "agent_count": 9
                     }
                   ],
-                  "page": 1,
-                  "per_page": 20
+                  "pagination": {
+                    "total": 1,
+                    "page": 1,
+                    "per_page": 20,
+                    "total_pages": 1
+                  }
                 }
               }
             }
@@ -1762,7 +2014,8 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "fld_01HXR9A3RWQXTQED0KH43WSYH1"
+              "default": "a3740204-726f-4547-b0f8-8831a5147207",
+              "example": "a3740204-726f-4547-b0f8-8831a5147207"
             }
           }
         ],
@@ -1775,11 +2028,24 @@
                   "$ref": "#/components/schemas/GenericResponse"
                 },
                 "example": {
-                  "status": "success",
+                  "success": true,
                   "folder": {
-                    "folder_id": "fld_01HXR9A3RWQXTQED0KH43WSYH1",
-                    "folder_name": "Outbound Agents",
-                    "description": "Sales and support"
+                    "_id": "698b090f0cc08f3e477484f6",
+                    "folder_id": "a3740204-726f-4547-b0f8-8831a5147207",
+                    "user_id": "user_32UrXxvrVxWSYp1dGLsPdElDtRu",
+                    "name": "Template agents",
+                    "description": "",
+                    "agent_ids": [
+                      "fad523e2-2645-4bc0-87ad-2b1727b1a939"
+                    ],
+                    "created_at": {
+                      "$date": "2026-02-10T10:31:43.777Z"
+                    },
+                    "updated_at": {
+                      "$date": "2026-02-19T12:29:10.978Z"
+                    },
+                    "agents": [],
+                    "agent_count": 1
                   }
                 }
               }
@@ -1805,12 +2071,12 @@
           {
             "lang": "curl",
             "label": "cURL",
-            "source": "curl --request POST \\\\\n  --url https://voip-middlware.superu.ai/folder/fld_01HXR9A3RWQXTQED0KH43WSYH1 \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY'"
+            "source": "curl --request POST \\\\\n  --url https://voip-middlware.superu.ai/folder/a3740204-726f-4547-b0f8-8831a5147207 \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY'"
           },
           {
             "lang": "python",
             "label": "Python",
-            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\npayload = {\n    \"folder_id\": \"fld_01HXR9A3RWQXTQED0KH43WSYH1\"\n}\n\nresponse = client.folders.get(**payload)\nprint(response)"
+            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\nfolder_id = \"a3740204-726f-4547-b0f8-8831a5147207\"\n\nresponse = client.folders.get(folder_id)\nprint(response)"
           }
         ]
       }
@@ -1831,7 +2097,7 @@
                 "$ref": "#/components/schemas/FolderUpdateRequest"
               },
               "example": {
-                "folder_id": "fld_01HXR9A3RWQXTQED0KH43WSYH1",
+                "folder_id": "25388237-72ba-46a9-b8b5-f0341939775c",
                 "folder_name": "Outbound Team",
                 "description": "Top of funnel campaigns"
               }
@@ -1848,9 +2114,21 @@
                   "$ref": "#/components/schemas/GenericResponse"
                 },
                 "example": {
-                  "status": "success",
-                  "folder_id": "fld_01HXR9A3RWQXTQED0KH43WSYH1",
-                  "message": "Folder updated"
+                  "success": true,
+                  "folder": {
+                    "_id": "69f9a4393fd42c4dfc2aaaa9",
+                    "folder_id": "25388237-72ba-46a9-b8b5-f0341939775c",
+                    "user_id": "user_32UrXxvrVxWSYp1dGLsPdElDtRu",
+                    "name": "Outbound Team",
+                    "description": "Top of funnel campaigns",
+                    "agent_ids": [],
+                    "created_at": {
+                      "$date": "2026-05-05T08:03:05.855Z"
+                    },
+                    "updated_at": {
+                      "$date": "2026-05-05T08:07:13.690Z"
+                    }
+                  }
                 }
               }
             }
@@ -1875,12 +2153,12 @@
           {
             "lang": "curl",
             "label": "cURL",
-            "source": "curl --request POST \\\\\n  --url https://voip-middlware.superu.ai/folder/update \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY' \\\\\n  --data '{\n  \"folder_id\": \"fld_01HXR9A3RWQXTQED0KH43WSYH1\",\n  \"folder_name\": \"Outbound Team\",\n  \"description\": \"Top of funnel campaigns\"\n}'"
+            "source": "curl --request POST \\\\\n  --url https://voip-middlware.superu.ai/folder/update \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY' \\\\\n  --data '{\n  \"folder_id\": \"25388237-72ba-46a9-b8b5-f0341939775c\",\n  \"folder_name\": \"Outbound Team\",\n  \"description\": \"Top of funnel campaigns\"\n}'"
           },
           {
             "lang": "python",
             "label": "Python",
-            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\npayload = {\n    \"folder_id\": \"fld_01HXR9A3RWQXTQED0KH43WSYH1\",\n    \"folder_name\": \"Outbound Team\",\n    \"description\": \"Top of funnel campaigns\"\n}\n\nresponse = client.folders.update(**payload)\nprint(response)"
+            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\npayload = {\n    \"folder_id\": \"25388237-72ba-46a9-b8b5-f0341939775c\",\n    \"folder_name\": \"Outbound Team\",\n    \"description\": \"Top of funnel campaigns\"\n}\n\nresponse = client.folders.update(**payload)\nprint(response)"
           }
         ]
       }
@@ -1901,7 +2179,7 @@
                 "$ref": "#/components/schemas/FolderDeleteRequest"
               },
               "example": {
-                "folder_id": "fld_01HXR9A3RWQXTQED0KH43WSYH1"
+                "folder_id": "25388237-72ba-46a9-b8b5-f0341939775c"
               }
             }
           },
@@ -1916,9 +2194,8 @@
                   "$ref": "#/components/schemas/GenericResponse"
                 },
                 "example": {
-                  "status": "success",
-                  "folder_id": "fld_01HXR9A3RWQXTQED0KH43WSYH1",
-                  "message": "Folder deleted"
+                  "success": true,
+                  "message": "Folder deleted successfully"
                 }
               }
             }
@@ -1943,12 +2220,12 @@
           {
             "lang": "curl",
             "label": "cURL",
-            "source": "curl --request POST \\\\\n  --url https://voip-middlware.superu.ai/folder/delete \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY' \\\\\n  --data '{\n  \"folder_id\": \"fld_01HXR9A3RWQXTQED0KH43WSYH1\"\n}'"
+            "source": "curl --request POST \\\\\n  --url https://voip-middlware.superu.ai/folder/delete \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY' \\\\\n  --data '{\n  \"folder_id\": \"25388237-72ba-46a9-b8b5-f0341939775c\"\n}'"
           },
           {
             "lang": "python",
             "label": "Python",
-            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\npayload = {\n    \"folder_id\": \"fld_01HXR9A3RWQXTQED0KH43WSYH1\"\n}\n\nresponse = client.folders.delete(**payload)\nprint(response)"
+            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\npayload = {\n    \"folder_id\": \"25388237-72ba-46a9-b8b5-f0341939775c\"\n}\n\nresponse = client.folders.delete(**payload)\nprint(response)"
           }
         ]
       }
@@ -1969,8 +2246,8 @@
                 "$ref": "#/components/schemas/FolderAssignAgentRequest"
               },
               "example": {
-                "agent_id": "ag_01HXR8FM5QYCVXAK4TYFJ4AEP0",
-                "folder_id": "fld_01HXR9A3RWQXTQED0KH43WSYH1"
+                "agent_id": "04cf74f7-019b-4c3d-883c-610a42b32bc4",
+                "folder_id": "25388237-72ba-46a9-b8b5-f0341939775c"
               }
             }
           },
@@ -1985,10 +2262,8 @@
                   "$ref": "#/components/schemas/GenericResponse"
                 },
                 "example": {
-                  "status": "success",
-                  "agent_id": "ag_01HXR8FM5QYCVXAK4TYFJ4AEP0",
-                  "folder_id": "fld_01HXR9A3RWQXTQED0KH43WSYH1",
-                  "message": "Agent assigned to folder"
+                  "success": true,
+                  "message": "Agent assigned to folder successfully"
                 }
               }
             }
@@ -2013,12 +2288,12 @@
           {
             "lang": "curl",
             "label": "cURL",
-            "source": "curl --request POST \\\\\n  --url https://voip-middlware.superu.ai/folder/assign-agent \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY' \\\\\n  --data '{\n  \"agent_id\": \"ag_01HXR8FM5QYCVXAK4TYFJ4AEP0\",\n  \"folder_id\": \"fld_01HXR9A3RWQXTQED0KH43WSYH1\"\n}'"
+            "source": "curl --request POST \\\\\n  --url https://voip-middlware.superu.ai/folder/assign-agent \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY' \\\\\n  --data '{\n  \"agent_id\": \"04cf74f7-019b-4c3d-883c-610a42b32bc4\",\n  \"folder_id\": \"25388237-72ba-46a9-b8b5-f0341939775c\"\n}'"
           },
           {
             "lang": "python",
             "label": "Python",
-            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\npayload = {\n    \"agent_id\": \"ag_01HXR8FM5QYCVXAK4TYFJ4AEP0\",\n    \"folder_id\": \"fld_01HXR9A3RWQXTQED0KH43WSYH1\"\n}\n\nresponse = client.folders.assign_agent(**payload)\nprint(response)"
+            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\npayload = {\n    \"agent_id\": \"04cf74f7-019b-4c3d-883c-610a42b32bc4\",\n    \"folder_id\": \"25388237-72ba-46a9-b8b5-f0341939775c\"\n}\n\nresponse = client.folders.assign_agent(**payload)\nprint(response)"
           }
         ]
       }
@@ -2039,7 +2314,8 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "fld_01HXR9A3RWQXTQED0KH43WSYH1"
+              "default": "a3740204-726f-4547-b0f8-8831a5147207",
+              "example": "a3740204-726f-4547-b0f8-8831a5147207"
             }
           }
         ],
@@ -2067,15 +2343,37 @@
                   "$ref": "#/components/schemas/GenericResponse"
                 },
                 "example": {
-                  "status": "success",
+                  "success": true,
                   "agents": [
                     {
-                      "agent_id": "ag_01HXR8FM5QYCVXAK4TYFJ4AEP0",
-                      "name": "Sales Agent"
+                      "_id": "69c228835c764b0c5ef71944",
+                      "user_id": "user_32UrXxvrVxWSYp1dGLsPdElDtRu",
+                      "name": "Acme Dental Clinic - AI Receptionist",
+                      "company_name": "",
+                      "vapi_assistant_id": "04cf74f7-019b-4c3d-883c-610a42b32bc4",
+                      "voice_id": "EXAVITQu4vr4xnSDxMaL",
+                      "speed": "1",
+                      "bg_noice": "false",
+                      "status": "active",
+                      "created_at": {
+                        "$date": "2026-03-24T06:00:35.877Z"
+                      },
+                      "first_message": "Thank you for calling Acme Dental Clinic! This is Emma. How can I help you today?",
+                      "industry_id": "Healthcare",
+                      "usecase_id": "Inbound Receptionist",
+                      "type": "inbound",
+                      "first_message_url": "https://static.pathora.in/plivo/EXAVITQu4vr4xnSDxMaL_3348c28e-a2a7-4e3f-8282-5feff0264674.mp3",
+                      "call_forwarding": null,
+                      "knowledge_base": null,
+                      "composio_app": {}
                     }
                   ],
-                  "page": 1,
-                  "per_page": 20
+                  "pagination": {
+                    "total": 1,
+                    "page": 1,
+                    "per_page": 20,
+                    "total_pages": 1
+                  }
                 }
               }
             }
@@ -2100,12 +2398,12 @@
           {
             "lang": "curl",
             "label": "cURL",
-            "source": "curl --request POST \\\\\n  --url https://voip-middlware.superu.ai/folder/fld_01HXR9A3RWQXTQED0KH43WSYH1/agents \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY' \\\\\n  --data '{\n  \"page\": 1,\n  \"per_page\": 20\n}'"
+            "source": "curl --request POST \\\\\n  --url https://voip-middlware.superu.ai/folder/a3740204-726f-4547-b0f8-8831a5147207/agents \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY' \\\\\n  --data '{\n  \"page\": 1,\n  \"per_page\": 20\n}'"
           },
           {
             "lang": "python",
             "label": "Python",
-            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\npayload = {\n    \"folder_id\": \"fld_01HXR9A3RWQXTQED0KH43WSYH1\",\n    \"page\": 1,\n    \"per_page\": 20\n}\n\nresponse = client.folders.get_agents(**payload)\nprint(response)"
+            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\npayload = {\n    \"folder_id\": \"a3740204-726f-4547-b0f8-8831a5147207\",\n    \"page\": 1,\n    \"per_page\": 20\n}\n\nresponse = client.folders.get_agents(**payload)\nprint(response)"
           }
         ]
       }
@@ -2131,7 +2429,7 @@
                 "email": "ava.patel@example.com",
                 "country_code": "+1",
                 "phone_number": "5551234567",
-                "audience_id": "aud_01HXR9V5S7W1S0Q4H4PDTGM43B"
+                "audience_id": "a3740204-726f-4547-b0f8-8831a5147208"
               }
             }
           },
@@ -2146,9 +2444,9 @@
                   "$ref": "#/components/schemas/GenericResponse"
                 },
                 "example": {
-                  "status": "success",
-                  "contact_id": "con_01HXR9N8QCYHTWNB5JX22P4QZA",
-                  "message": "Contact created"
+                  "success": true,
+                  "message": "Contact created successfully",
+                  "contact_id": "69f9a8689a75ace1c01dc475"
                 }
               }
             }
@@ -2161,9 +2459,9 @@
                   "$ref": "#/components/schemas/GenericResponse"
                 },
                 "example": {
-                  "status": "success",
-                  "contact_id": "con_01HXR9N8QCYHTWNB5JX22P4QZA",
-                  "message": "Contact created"
+                  "success": true,
+                  "message": "Contact created successfully",
+                  "contact_id": "69f9a8689a75ace1c01dc475"
                 }
               }
             }
@@ -2188,12 +2486,12 @@
           {
             "lang": "curl",
             "label": "cURL",
-            "source": "curl --request POST \\\\\n  --url https://voip-middlware.superu.ai/contact/create \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY' \\\\\n  --data '{\n  \"first_name\": \"Ava\",\n  \"last_name\": \"Patel\",\n  \"email\": \"ava.patel@example.com\",\n  \"country_code\": \"+1\",\n  \"phone_number\": \"5551234567\",\n  \"audience_id\": \"aud_01HXR9V5S7W1S0Q4H4PDTGM43B\"\n}'"
+            "source": "curl --request POST \\\\\n  --url https://voip-middlware.superu.ai/contact/create \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY' \\\\\n  --data '{\n  \"first_name\": \"Ava\",\n  \"last_name\": \"Patel\",\n  \"email\": \"ava.patel@example.com\",\n  \"country_code\": \"+1\",\n  \"phone_number\": \"5551234567\",\n  \"audience_id\": \"a3740204-726f-4547-b0f8-8831a5147208\"\n}'"
           },
           {
             "lang": "python",
             "label": "Python",
-            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\npayload = {\n    \"first_name\": \"Ava\",\n    \"last_name\": \"Patel\",\n    \"email\": \"ava.patel@example.com\",\n    \"country_code\": \"+1\",\n    \"phone_number\": \"5551234567\",\n    \"audience_id\": \"aud_01HXR9V5S7W1S0Q4H4PDTGM43B\"\n}\n\nresponse = client.contacts.create(**payload)\nprint(response)"
+            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\npayload = {\n    \"first_name\": \"Ava\",\n    \"last_name\": \"Patel\",\n    \"email\": \"ava.patel@example.com\",\n    \"country_code\": \"+1\",\n    \"phone_number\": \"5551234567\",\n    \"audience_id\": \"a3740204-726f-4547-b0f8-8831a5147208\"\n}\n\nresponse = client.contacts.create(**payload)\nprint(response)"
           }
         ]
       }
@@ -2252,16 +2550,23 @@
                   "$ref": "#/components/schemas/GenericResponse"
                 },
                 "example": {
-                  "status": "success",
                   "contact_list": [
                     {
-                      "contact_id": "con_01HXR9N8QCYHTWNB5JX22P4QZA",
-                      "first_name": "Ava",
-                      "phone_number": "5551234567"
+                      "id": "69f9a8689a75ace1c01dc475",
+                      "name": "Ava Patel",
+                      "email": "ava.patel@example.com",
+                      "phone": "+1 5551234567",
+                      "created_at": "2026-05-05 08:20:56.125000"
                     }
                   ],
-                  "page": 1,
-                  "limit": 10
+                  "pagination": {
+                    "page": 1,
+                    "limit": 10,
+                    "total_count": 1,
+                    "total_pages": 1,
+                    "has_next": false,
+                    "has_prev": false
+                  }
                 }
               }
             }
@@ -2340,10 +2645,22 @@
                   "$ref": "#/components/schemas/GenericResponse"
                 },
                 "example": {
-                  "status": "success",
-                  "audience_id": "aud_01HXR9V5S7W1S0Q4H4PDTGM43B",
+                  "message": "Audience created successfully",
+                  "audience_id": "597b3dde-9169-4017-800d-f97a5fabebe3",
+                  "audience_name": "Demo Audience",
+                  "audience_description": "Leads from webinar",
+                  "total_contacts": 1,
                   "contacts_added": 1,
-                  "message": "Audience created"
+                  "contacts": [
+                    {
+                      "id": "69f9a9a1c2647606b8c43154",
+                      "first_name": "Ava",
+                      "last_name": "Patel",
+                      "email": "ava.patel@example.com",
+                      "country_code": "+1",
+                      "phone_number": "5551234567"
+                    }
+                  ]
                 }
               }
             }
@@ -2422,12 +2739,13 @@
                   "$ref": "#/components/schemas/GenericResponse"
                 },
                 "example": {
-                  "status": "success",
                   "audience_list": [
                     {
-                      "audience_id": "aud_01HXR9V5S7W1S0Q4H4PDTGM43B",
-                      "audience_name": "Demo Audience",
-                      "contactCount": 32
+                      "id": "597b3dde-9169-4017-800d-f97a5fabebe3",
+                      "name": "Demo Audience",
+                      "description": "Leads from webinar",
+                      "contactCount": 1,
+                      "createdAt": "2026-05-05"
                     }
                   ]
                 }
@@ -2480,7 +2798,8 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "aud_01HXR9V5S7W1S0Q4H4PDTGM43B"
+              "default": "597b3dde-9169-4017-800d-f97a5fabebe3",
+              "example": "597b3dde-9169-4017-800d-f97a5fabebe3"
             }
           }
         ],
@@ -2493,11 +2812,25 @@
                   "$ref": "#/components/schemas/GenericResponse"
                 },
                 "example": {
-                  "status": "success",
-                  "audience_id": "aud_01HXR9V5S7W1S0Q4H4PDTGM43B",
+                  "audience_id": "597b3dde-9169-4017-800d-f97a5fabebe3",
                   "audience_name": "Demo Audience",
                   "audience_description": "Leads from webinar",
-                  "contact_count": 32
+                  "created_by_user_id": "user_32UrXxvrVxWSYp1dGLsPdElDtRt",
+                  "created_at": "2026-05-05 08:26:09",
+                  "contacts": [
+                    {
+                      "first_name": "Ava",
+                      "last_name": "Patel",
+                      "name": "Ava Patel",
+                      "email": "ava.patel@example.com",
+                      "country_code": "+1",
+                      "phone_number": "5551234567",
+                      "phoneNumber": "+1 5551234567",
+                      "id": "69f9a9a1c2647606b8c43154",
+                      "salutation": ""
+                    }
+                  ],
+                  "total_contacts": 1
                 }
               }
             }
@@ -2529,12 +2862,12 @@
           {
             "lang": "curl",
             "label": "cURL",
-            "source": "curl --request GET \\\\\n  --url https://voip-middlware.superu.ai/audience/aud_01HXR9V5S7W1S0Q4H4PDTGM43B \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY'"
+            "source": "curl --request GET \\\\\n  --url https://voip-middlware.superu.ai/audience/597b3dde-9169-4017-800d-f97a5fabebe3 \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY'"
           },
           {
             "lang": "python",
             "label": "Python",
-            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\npayload = {\n    \"audience_id\": \"aud_01HXR9V5S7W1S0Q4H4PDTGM43B\"\n}\n\nresponse = client.audience.get(**payload)\nprint(response)"
+            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\naudience_id = \"597b3dde-9169-4017-800d-f97a5fabebe3\"\n\nresponse = client.audience.get(audience_id)\nprint(response)"
           }
         ]
       }
@@ -2555,7 +2888,8 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "aud_01HXR9V5S7W1S0Q4H4PDTGM43B"
+              "default": "597b3dde-9169-4017-800d-f97a5fabebe3",
+              "example": "597b3dde-9169-4017-800d-f97a5fabebe3"
             }
           },
           {
@@ -2593,17 +2927,24 @@
                   "$ref": "#/components/schemas/GenericResponse"
                 },
                 "example": {
-                  "status": "success",
                   "contact_list": [
                     {
-                      "contact_id": "con_01HXR9N8QCYHTWNB5JX22P4QZA",
-                      "first_name": "Ava",
-                      "country_code": "+1",
-                      "phone_number": "5551234567"
+                      "id": "69f9a9a1c2647606b8c43154",
+                      "name": "Ava Patel",
+                      "email": "ava.patel@example.com",
+                      "phone": "+1 5551234567",
+                      "audience_id": "597b3dde-9169-4017-800d-f97a5fabebe3",
+                      "created_at": "2026-05-05 08:26:09.655000"
                     }
                   ],
-                  "page": 1,
-                  "limit": 10
+                  "pagination": {
+                    "total": 1,
+                    "page": 1,
+                    "per_page": 10,
+                    "total_pages": 1,
+                    "has_next": false,
+                    "has_prev": false
+                  }
                 }
               }
             }
@@ -2628,12 +2969,12 @@
           {
             "lang": "curl",
             "label": "cURL",
-            "source": "curl --request GET \\\\\n  --url https://voip-middlware.superu.ai/audience/contacts/list?audience_id=aud_01HXR9V5S7W1S0Q4H4PDTGM43B&page=1&limit=10 \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY'"
+            "source": "curl --request GET \\\\\n  --url https://voip-middlware.superu.ai/audience/contacts/list?audience_id=597b3dde-9169-4017-800d-f97a5fabebe3&page=1&limit=10 \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY'"
           },
           {
             "lang": "python",
             "label": "Python",
-            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\npayload = {\n    \"audience_id\": \"aud_01HXR9V5S7W1S0Q4H4PDTGM43B\",\n    \"page\": \"1\",\n    \"limit\": \"10\"\n}\n\nresponse = client.audience.get_contacts(**payload)\nprint(response)"
+            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\npayload = {\n    \"audience_id\": \"597b3dde-9169-4017-800d-f97a5fabebe3\",\n    \"page\": 1,\n    \"limit\": 10\n}\n\nresponse = client.audience.get_contacts(**payload)\nprint(response)"
           }
         ]
       }
@@ -2654,7 +2995,7 @@
                 "$ref": "#/components/schemas/AudienceUpdateRequest"
               },
               "example": {
-                "audience_id": "aud_01HXR9V5S7W1S0Q4H4PDTGM43B",
+                "audience_id": "597b3dde-9169-4017-800d-f97a5fabebe3",
                 "audience_name": "Demo Audience - Q1",
                 "audience_description": "Qualified leads"
               }
@@ -2671,9 +3012,10 @@
                   "$ref": "#/components/schemas/GenericResponse"
                 },
                 "example": {
-                  "status": "success",
-                  "audience_id": "aud_01HXR9V5S7W1S0Q4H4PDTGM43B",
-                  "message": "Audience updated"
+                  "message": "Audience updated successfully",
+                  "audience_id": "597b3dde-9169-4017-800d-f97a5fabebe3",
+                  "audience_name": "Demo Audience - Q1",
+                  "audience_description": "Qualified leads"
                 }
               }
             }
@@ -2705,12 +3047,12 @@
           {
             "lang": "curl",
             "label": "cURL",
-            "source": "curl --request PUT \\\\\n  --url https://voip-middlware.superu.ai/audience/update \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY' \\\\\n  --data '{\n  \"audience_id\": \"aud_01HXR9V5S7W1S0Q4H4PDTGM43B\",\n  \"audience_name\": \"Demo Audience - Q1\",\n  \"audience_description\": \"Qualified leads\"\n}'"
+            "source": "curl --request PUT \\\\\n  --url https://voip-middlware.superu.ai/audience/update \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY' \\\\\n  --data '{\n  \"audience_id\": \"597b3dde-9169-4017-800d-f97a5fabebe3\",\n  \"audience_name\": \"Demo Audience - Q1\",\n  \"audience_description\": \"Qualified leads\"\n}'"
           },
           {
             "lang": "python",
             "label": "Python",
-            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\npayload = {\n    \"audience_id\": \"aud_01HXR9V5S7W1S0Q4H4PDTGM43B\",\n    \"audience_name\": \"Demo Audience - Q1\",\n    \"audience_description\": \"Qualified leads\"\n}\n\nresponse = client.audience.update(**payload)\nprint(response)"
+            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\npayload = {\n    \"audience_id\": \"597b3dde-9169-4017-800d-f97a5fabebe3\",\n    \"audience_name\": \"Demo Audience - Q1\",\n    \"audience_description\": \"Qualified leads\"\n}\n\nresponse = client.audience.update(**payload)\nprint(response)"
           }
         ]
       }
@@ -2731,14 +3073,14 @@
                 "$ref": "#/components/schemas/AudienceAddContactsRequest"
               },
               "example": {
-                "audience_id": "aud_01HXR9V5S7W1S0Q4H4PDTGM43B",
+                "audience_id": "597b3dde-9169-4017-800d-f97a5fabebe3",
                 "contacts": [
                   {
-                    "first_name": "Ava",
-                    "last_name": "Patel",
-                    "email": "ava.patel@example.com",
+                    "first_name": "Emma",
+                    "last_name": "Watson",
+                    "email": "emma@example.com",
                     "country_code": "+1",
-                    "phone_number": "5551234567",
+                    "phone_number": "5551234523",
                     "variable_values": {
                       "key": "value"
                     }
@@ -2758,10 +3100,21 @@
                   "$ref": "#/components/schemas/GenericResponse"
                 },
                 "example": {
-                  "status": "success",
-                  "audience_id": "aud_01HXR9V5S7W1S0Q4H4PDTGM43B",
-                  "contacts_added": 2,
-                  "message": "Contacts added"
+                  "message": "Successfully added 1 contact(s) to audience",
+                  "audience_id": "597b3dde-9169-4017-800d-f97a5fabebe3",
+                  "audience_name": "Demo Audience - Q1",
+                  "contacts_added": 1,
+                  "total_contacts_provided": 1,
+                  "contacts": [
+                    {
+                      "id": "69f9aa813ff1953354e5e428",
+                      "first_name": "Emma",
+                      "last_name": "Watson",
+                      "email": "emma@example.com",
+                      "country_code": "+1",
+                      "phone_number": "5551234523"
+                    }
+                  ]
                 }
               }
             }
@@ -2793,12 +3146,12 @@
           {
             "lang": "curl",
             "label": "cURL",
-            "source": "curl --request POST \\\\\n  --url https://voip-middlware.superu.ai/audience/add-contacts \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY' \\\\\n  --data '{\n  \"audience_id\": \"aud_01HXR9V5S7W1S0Q4H4PDTGM43B\",\n  \"contacts\": [\n    {\n      \"first_name\": \"Ava\",\n      \"last_name\": \"Patel\",\n      \"email\": \"ava.patel@example.com\",\n      \"country_code\": \"+1\",\n      \"phone_number\": \"5551234567\",\n      \"variable_values\": {\n        \"key\": \"value\"\n      }\n    }\n  ]\n}'"
+            "source": "curl --request POST \\\\\n  --url https://voip-middlware.superu.ai/audience/add-contacts \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY' \\\\\n  --data '{\n  \"audience_id\": \"597b3dde-9169-4017-800d-f97a5fabebe3\",\n  \"contacts\": [\n    {\n      \"first_name\": \"Emma\",\n      \"last_name\": \"Watson\",\n      \"email\": \"emma@example.com\",\n      \"country_code\": \"+1\",\n      \"phone_number\": \"5551234523\",\n      \"variable_values\": {\n        \"key\": \"value\"\n      }\n    }\n  ]\n}'"
           },
           {
             "lang": "python",
             "label": "Python",
-            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\npayload = {\n    \"audience_id\": \"aud_01HXR9V5S7W1S0Q4H4PDTGM43B\",\n    \"contacts\": [\n        {\n            \"first_name\": \"Ava\",\n            \"last_name\": \"Patel\",\n            \"email\": \"ava.patel@example.com\",\n            \"country_code\": \"+1\",\n            \"phone_number\": \"5551234567\",\n            \"variable_values\": {\n                \"key\": \"value\"\n            }\n        }\n    ]\n}\n\nresponse = client.audience.add_contacts(**payload)\nprint(response)"
+            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\npayload = {\n    \"audience_id\": \"597b3dde-9169-4017-800d-f97a5fabebe3\",\n    \"contacts\": [\n        {\n            \"first_name\": \"Emma\",\n            \"last_name\": \"Watson\",\n            \"email\": \"emma@example.com\",\n            \"country_code\": \"+1\",\n            \"phone_number\": \"5551234523\",\n            \"variable_values\": {\n                \"key\": \"value\"\n            }\n        }\n    ]\n}\n\nresponse = client.audience.add_contacts(**payload)\nprint(response)"
           }
         ]
       }
@@ -2819,7 +3172,7 @@
                 "$ref": "#/components/schemas/AudienceDeleteRequest"
               },
               "example": {
-                "audience_id": "aud_01HXR9V5S7W1S0Q4H4PDTGM43B"
+                "audience_id": "597b3dde-9169-4017-800d-f97a5fabebe3"
               }
             }
           },
@@ -2835,7 +3188,7 @@
                 },
                 "example": {
                   "status": "success",
-                  "audience_id": "aud_01HXR9V5S7W1S0Q4H4PDTGM43B",
+                  "audience_id": "597b3dde-9169-4017-800d-f97a5fabebe3",
                   "contacts_deleted": 32,
                   "message": "Audience deleted"
                 }
@@ -2869,12 +3222,12 @@
           {
             "lang": "curl",
             "label": "cURL",
-            "source": "curl --request DELETE \\\\\n  --url https://voip-middlware.superu.ai/audience/delete \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY' \\\\\n  --data '{\n  \"audience_id\": \"aud_01HXR9V5S7W1S0Q4H4PDTGM43B\"\n}'"
+            "source": "curl --request DELETE \\\\\n  --url https://voip-middlware.superu.ai/audience/delete \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY' \\\\\n  --data '{\n  \"audience_id\": \"597b3dde-9169-4017-800d-f97a5fabebe3\"\n}'"
           },
           {
             "lang": "python",
             "label": "Python",
-            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\npayload = {\n    \"audience_id\": \"aud_01HXR9V5S7W1S0Q4H4PDTGM43B\"\n}\n\nresponse = client.audience.delete(**payload)\nprint(response)"
+            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\npayload = {\n    \"audience_id\": \"597b3dde-9169-4017-800d-f97a5fabebe3\"\n}\n\nresponse = client.audience.delete(**payload)\nprint(response)"
           }
         ]
       }
@@ -2940,12 +3293,33 @@
                 },
                 "example": {
                   "status": "success",
+                  "message": "Knowledge base created successfully. Knowledge base created with embeddings. Processed 1 files into 39 chunks.",
                   "data": {
-                    "knowledge_base_id": "kb_01HXRA4N5B8Q0SJC0F30Z8W0DT",
-                    "kb_uuid": "kb_abc123",
-                    "embedding_status": "processing"
-                  },
-                  "message": "Knowledge base created"
+                    "knowledge_base_id": "69f9ac509e0388ee380f73d1",
+                    "kb_uuid": "a7aba494-c043-455c-8429-3ae7e58f957e",
+                    "name": "FAQ",
+                    "description": "Frequently asked questions",
+                    "total_files": 1,
+                    "files": [
+                      {
+                        "original_filename": "faq.pdf",
+                        "s3_key": "knowledge-base/686e8db4-15df-435e-84fe-b5f6334c2015-faq.pdf",
+                        "file_url": "https://pluto-superu.s3.amazonaws.com/knowledge-base/686e8db4-15df-435e-84fe-b5f6334c2015-5_letters.csv",
+                        "file_size": 27500,
+                        "uploaded_at": {
+                          "$date": "2026-05-05T08:37:36.632Z"
+                        },
+                        "file_content": {
+                          "$binary": {
+                            "base64": "...",
+                            "subType": "00"
+                          }
+                        }
+                      }
+                    ],
+                    "embedding_status": "completed",
+                    "created_at": "2026-05-05T08:37:36.632484"
+                  }
                 }
               }
             }
@@ -3013,16 +3387,36 @@
                 },
                 "example": {
                   "status": "success",
-                  "knowledge_bases": [
-                    {
-                      "knowledge_base_id": "kb_01HXRA4N5B8Q0SJC0F30Z8W0DT",
-                      "kb_uuid": "kb_abc123",
-                      "name": "FAQ",
-                      "embedding_status": "completed"
+                  "data": {
+                    "knowledge_bases": [
+                      {
+                        "_id": "69f9ac509e0388ee380f73d1",
+                        "name": "FAQ",
+                        "description": "Frequently asked questions",
+                        "files": [
+                          {
+                            "original_filename": "faq.pdf"
+                          }
+                        ],
+                        "total_files": 1,
+                        "kb_uuid": "a7aba494-c043-455c-8429-3ae7e58f957e",
+                        "created_at": "2026-05-05T08:37:36.632000",
+                        "embedding_status": "completed",
+                        "total_chunks": 39,
+                        "filenames": [
+                          "5_letters.csv"
+                        ]
+                      }
+                    ],
+                    "pagination": {
+                      "current_page": 1,
+                      "per_page": 10,
+                      "total_count": 1,
+                      "total_pages": 1,
+                      "has_next": false,
+                      "has_prev": false
                     }
-                  ],
-                  "page": 1,
-                  "limit": 10
+                  }
                 }
               }
             }
@@ -3073,7 +3467,8 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "kb_01HXRA4N5B8Q0SJC0F30Z8W0DT"
+              "default": "a7aba494-c043-455c-8429-3ae7e58f957e",
+              "example": "a7aba494-c043-455c-8429-3ae7e58f957e"
             }
           }
         ],
@@ -3087,16 +3482,46 @@
                 },
                 "example": {
                   "status": "success",
-                  "knowledge_base_id": "kb_01HXRA4N5B8Q0SJC0F30Z8W0DT",
-                  "kb_uuid": "kb_abc123",
-                  "name": "FAQ",
-                  "description": "Frequently asked questions",
-                  "files": [
-                    {
-                      "filename": "faq.pdf",
-                      "status": "embedded"
-                    }
-                  ]
+                  "data": {
+                    "_id": "69f9ac509e0388ee380f73d1",
+                    "user_id": "user_32UrXxvrVxWSYp1dGLsPdElDtRu",
+                    "name": "FAQ",
+                    "description": "Frequently asked questions",
+                    "files": [
+                      {
+                        "original_filename": "faq.pdf",
+                        "s3_key": "knowledge-base/686e8db4-15df-435e-84fe-b5f6334c2015-faq.pdf",
+                        "file_url": "https://pluto-superu.s3.amazonaws.com/knowledge-base/686e8db4-15df-435e-84fe-b5f6334c2015-5_letters.csv",
+                        "file_size": 27500,
+                        "uploaded_at": "2026-05-05T08:37:36.632000",
+                        "file_content": {
+                          "$binary": {
+                            "base64": "...",
+                            "subType": "00"
+                          }
+                        }
+                      }
+                    ],
+                    "total_files": 1,
+                    "kb_uuid": "a7aba494-c043-455c-8429-3ae7e58f957e",
+                    "created_at": "2026-05-05T08:37:36.632000",
+                    "updated_at": "2026-05-05T08:37:45.530000",
+                    "embedding_status": "completed",
+                    "embedding_info": {
+                      "total_files_processed": 1,
+                      "total_processing_time": 8.723745822906494,
+                      "results": [
+                        {
+                          "file": "faq.pdf",
+                          "file_type": "pdf",
+                          "success": true,
+                          "chunks_created": 39,
+                          "processing_time": 8.723745822906494
+                        }
+                      ]
+                    },
+                    "total_chunks": 39
+                  }
                 }
               }
             }
@@ -3128,12 +3553,12 @@
           {
             "lang": "curl",
             "label": "cURL",
-            "source": "curl --request GET \\\\\n  --url https://voip-middlware.superu.ai/knowledge-base/kb_01HXRA4N5B8Q0SJC0F30Z8W0DT \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY'"
+            "source": "curl --request GET \\\\\n  --url https://voip-middlware.superu.ai/knowledge-base/a7aba494-c043-455c-8429-3ae7e58f957e \\\\\n  --header 'superU-Api-Key: YOUR_SUPERU_API_KEY'"
           },
           {
             "lang": "python",
             "label": "Python",
-            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\npayload = {\n    \"knowledge_base_id\": \"kb_01HXRA4N5B8Q0SJC0F30Z8W0DT\"\n}\n\nresponse = client.knowledge_base.get(**payload)\nprint(response)"
+            "source": "from superu import SuperU\n\nclient = SuperU(\"YOUR_SUPERU_API_KEY\")\n\nknowledge_base_id = \"a7aba494-c043-455c-8429-3ae7e58f957e\"\n\nresponse = client.knowledge_base.get(knowledge_base_id)\nprint(response)"
           }
         ]
       }
@@ -3308,9 +3733,7 @@
             "required": [
               "assistant_id",
               "to",
-              "campaign_id",
-              "customer_name",
-              "customer_id"
+              "from"
             ],
             "properties": {
               "assistant_id": {
@@ -3386,11 +3809,6 @@
                 "description": "First message spoken by the assistant",
                 "example": "Hi, thanks for taking the call."
               },
-              "voice": {
-                "type": "string",
-                "description": "Voice ID alias",
-                "example": "90ipbRoKi4CpHXvKVtl0"
-              },
               "voice_id": {
                 "type": "string",
                 "description": "Voice ID",
@@ -3401,26 +3819,7 @@
                 "description": "Voice provider",
                 "example": "11labs"
               },
-              "speed": {
-                "type": "string",
-                "description": "Voice speed",
-                "example": "1.0"
-              },
-              "bg_noice": {
-                "type": "string",
-                "description": "Background noise toggle as lowercase string",
-                "enum": [
-                  "true",
-                  "false"
-                ],
-                "example": "false"
-              },
-              "backgroundNoise": {
-                "type": "boolean",
-                "description": "Background noise toggle as boolean",
-                "example": false
-              },
-              "script": {
+              "system_prompt": {
                 "type": "string",
                 "description": "System prompt template.\n\nVariable syntax:\n- Use {{ variable_name }}\n- Spaces inside braces are required (e.g., {{ name }})\n- Keep them same when passing the variables in the [Create Call request](/api-reference/calls/create-outbound-call#body-variable-values)",
                 "example": "You are a helpful assistant."
@@ -3480,7 +3879,8 @@
               "search_query": {
                 "type": "string",
                 "description": "Optional text filter",
-                "example": "sales"
+                "default": "",
+                "example": ""
               }
             }
           }
@@ -3499,12 +3899,12 @@
               "agent_id": {
                 "type": "string",
                 "description": "Agent ID",
-                "example": "ag_01HXR8FM5QYCVXAK4TYFJ4AEP0"
+                "example": "76286489-86a8-4540-b479-b0154e474555"
               },
               "name": {
                 "type": "string",
                 "description": "New name",
-                "example": "Sales Assistant V2"
+                "example": "Testinggg"
               }
             }
           }
@@ -3516,13 +3916,14 @@
           {
             "type": "object",
             "required": [
-              "agent_object_id"
+              "agent_id",
+              "folder_id"
             ],
             "properties": {
-              "agent_object_id": {
+              "agent_id": {
                 "type": "string",
-                "description": "Agent object ID",
-                "example": "66d3f3417bc4a5d5f8b7c8f4"
+                "description": "Agent ID",
+                "example": "76286489-86a8-4540-b479-b0154e474555"
               }
             }
           }
@@ -3542,12 +3943,12 @@
               "agent_id": {
                 "type": "string",
                 "description": "Agent ID",
-                "example": "ag_01HXR8FM5QYCVXAK4TYFJ4AEP0"
+                "example": "76286489-86a8-4540-b479-b0154e474555"
               },
               "version": {
                 "type": "string",
                 "description": "Version label",
-                "example": "v2"
+                "example": "1.0.3"
               },
               "assistant_data": {
                 "$ref": "#/components/schemas/JsonObject",
@@ -3594,46 +3995,27 @@
               "agent_id": {
                 "type": "string",
                 "description": "Agent ID",
-                "example": "ag_01HXR8FM5QYCVXAK4TYFJ4AEP0"
+                "example": "76286489-86a8-4540-b479-b0154e474555"
               },
               "version_id": {
                 "type": "string",
                 "description": "Version ID",
-                "example": "ver_01HXR8Q2S3E4YQH0RQ5K2V7A8D"
+                "example": "69f884d50c4e5a2dc72277d4"
               },
               "version": {
                 "type": "string",
                 "description": "New version label",
-                "example": "v2.1"
+                "example": "1.0.1"
               },
               "assistant_data": {
                 "$ref": "#/components/schemas/JsonObject",
                 "description": "Assistant data value."
               },
-              "composio-app": {
+              "composio_app": {
                 "$ref": "#/components/schemas/JsonObject",
-                "description": "Composio app value."
+                "description": "Optional composio app configuration."
               }
             }
-          },
-          {
-            "anyOf": [
-              {
-                "required": [
-                  "version"
-                ]
-              },
-              {
-                "required": [
-                  "assistant_data"
-                ]
-              },
-              {
-                "required": [
-                  "composio-app"
-                ]
-              }
-            ]
           }
         ],
         "description": "Agent Version Update Request schema."
@@ -3650,12 +4032,12 @@
               "agent_id": {
                 "type": "string",
                 "description": "Agent ID",
-                "example": "ag_01HXR8FM5QYCVXAK4TYFJ4AEP0"
+                "example": "04cf74f7-019b-4c3d-883c-610a42b32bc4"
               },
               "version": {
                 "type": "string",
-                "description": "Version label",
-                "example": "v2"
+                "description": "Version ID",
+                "example": "69f884d50c4e5a2dc72277d4"
               }
             }
           }
@@ -3673,7 +4055,7 @@
               "agent_id": {
                 "type": "string",
                 "description": "Agent ID",
-                "example": "ag_01HXR8FM5QYCVXAK4TYFJ4AEP0"
+                "example": "04cf74f7-019b-4c3d-883c-610a42b32bc4"
               }
             }
           }
@@ -3686,18 +4068,18 @@
             "type": "object",
             "required": [
               "agent_id",
-              "version_id"
+              "version"
             ],
             "properties": {
               "agent_id": {
                 "type": "string",
                 "description": "Agent ID",
-                "example": "ag_01HXR8FM5QYCVXAK4TYFJ4AEP0"
+                "example": "04cf74f7-019b-4c3d-883c-610a42b32bc4"
               },
-              "version_id": {
+              "version": {
                 "type": "string",
-                "description": "Version ID",
-                "example": "ver_01HXR8Q2S3E4YQH0RQ5K2V7A8D"
+                "description": "Version label to deploy",
+                "example": "1.0.0"
               }
             }
           }
@@ -3710,58 +4092,69 @@
             "type": "object",
             "required": [
               "name",
+              "type",
+              "url",
               "description",
-              "parameters",
-              "tool_url",
-              "tool_url_domain"
+              "method"
             ],
             "properties": {
               "name": {
                 "type": "string",
                 "description": "Tool name",
-                "example": "check-user-status"
+                "example": "Tool 1"
+              },
+              "type": {
+                "type": "string",
+                "description": "Tool type",
+                "example": "apiRequest"
+              },
+              "url": {
+                "type": "string",
+                "description": "Request URL",
+                "example": "https://www.google.com"
               },
               "description": {
                 "type": "string",
                 "description": "What the tool does",
-                "example": "Check if a user exists in the database"
+                "example": "hehe"
               },
-              "parameters": {
+              "method": {
+                "type": "string",
+                "description": "HTTP method",
+                "example": "GET"
+              },
+              "body": {
                 "type": "object",
-                "description": "JSON schema-like parameter definition",
+                "description": "Request body schema.",
                 "additionalProperties": true,
                 "example": {
                   "type": "object",
                   "properties": {
-                    "email": {
+                    "new": {
                       "type": "string",
-                      "description": "User email"
+                      "description": "2"
                     }
-                  },
-                  "required": [
-                    "email"
-                  ]
+                  }
                 }
               },
-              "tool_url": {
-                "type": "string",
-                "description": "Endpoint path for tool execution",
-                "example": "/api/check-user"
+              "headers": {
+                "type": "object",
+                "description": "Request header schema.",
+                "additionalProperties": true,
+                "example": {
+                  "type": "object",
+                  "properties": {
+                    "new": {
+                      "type": "string",
+                      "description": "2"
+                    }
+                  }
+                }
               },
-              "tool_url_domain": {
-                "type": "string",
-                "description": "Base domain for tool execution",
-                "example": "https://your-api.com"
-              },
-              "type": {
-                "type": "string",
-                "description": "Optional tool type",
-                "example": "http"
-              },
-              "async_": {
-                "type": "boolean",
-                "description": "Whether the tool runs asynchronously",
-                "example": false
+              "timeoutSeconds": {
+                "type": "integer",
+                "description": "Request timeout in seconds",
+                "example": 20
               }
             }
           }
@@ -3793,7 +4186,8 @@
               "type": {
                 "type": "string",
                 "description": "Optional tool type filter",
-                "example": "http"
+                "default": "apiRequest",
+                "example": "apiRequest"
               }
             }
           }
@@ -3807,37 +4201,41 @@
             "properties": {
               "name": {
                 "type": "string",
-                "example": "check-user-status-v2",
+                "example": "Tool 1",
                 "description": "Name value."
-              },
-              "description": {
-                "type": "string",
-                "example": "Check if a user exists in CRM",
-                "description": "Description value."
-              },
-              "parameters": {
-                "$ref": "#/components/schemas/JsonObject",
-                "description": "Parameters value."
-              },
-              "tool_url": {
-                "type": "string",
-                "example": "/api/check-user",
-                "description": "Tool url value."
-              },
-              "tool_url_domain": {
-                "type": "string",
-                "example": "https://your-api.com",
-                "description": "Tool url domain value."
               },
               "type": {
                 "type": "string",
-                "example": "http",
-                "description": "Type value."
+                "example": "apiRequest",
+                "description": "Tool type."
               },
-              "async_": {
-                "type": "boolean",
-                "example": false,
-                "description": "Async value."
+              "url": {
+                "type": "string",
+                "example": "https://www.google.com",
+                "description": "Request URL."
+              },
+              "description": {
+                "type": "string",
+                "example": "hehe",
+                "description": "Description value."
+              },
+              "method": {
+                "type": "string",
+                "example": "GET",
+                "description": "HTTP method."
+              },
+              "body": {
+                "$ref": "#/components/schemas/JsonObject",
+                "description": "Request body schema."
+              },
+              "headers": {
+                "$ref": "#/components/schemas/JsonObject",
+                "description": "Request header schema."
+              },
+              "timeoutSeconds": {
+                "type": "integer",
+                "example": 20,
+                "description": "Request timeout in seconds."
               }
             },
             "additionalProperties": true,
@@ -3907,7 +4305,7 @@
               "folder_id": {
                 "type": "string",
                 "description": "Folder ID",
-                "example": "fld_01HXR9A3RWQXTQED0KH43WSYH1"
+                "example": "25388237-72ba-46a9-b8b5-f0341939775c"
               },
               "folder_name": {
                 "type": "string",
@@ -3949,7 +4347,7 @@
               "folder_id": {
                 "type": "string",
                 "description": "Folder ID",
-                "example": "fld_01HXR9A3RWQXTQED0KH43WSYH1"
+                "example": "25388237-72ba-46a9-b8b5-f0341939775c"
               }
             }
           }
@@ -3967,12 +4365,12 @@
               "agent_id": {
                 "type": "string",
                 "description": "Agent ID",
-                "example": "ag_01HXR8FM5QYCVXAK4TYFJ4AEP0"
+                "example": "04cf74f7-019b-4c3d-883c-610a42b32bc4"
               },
               "folder_id": {
                 "type": "string",
                 "description": "Folder ID",
-                "example": "fld_01HXR9A3RWQXTQED0KH43WSYH1"
+                "example": "25388237-72ba-46a9-b8b5-f0341939775c"
               }
             }
           }
@@ -4045,7 +4443,7 @@
           "audience_id": {
             "type": "string",
             "description": "Optional audience ID",
-            "example": "aud_01HXR9V5S7W1S0Q4H4PDTGM43B"
+            "example": "a3740204-726f-4547-b0f8-8831a5147208"
           }
         },
         "description": "Contact Create Request schema."
@@ -4134,7 +4532,7 @@
               "audience_id": {
                 "type": "string",
                 "description": "Audience ID",
-                "example": "aud_01HXR9V5S7W1S0Q4H4PDTGM43B"
+                "example": "597b3dde-9169-4017-800d-f97a5fabebe3"
               },
               "audience_name": {
                 "type": "string",
@@ -4177,7 +4575,7 @@
               "audience_id": {
                 "type": "string",
                 "description": "Audience ID",
-                "example": "aud_01HXR9V5S7W1S0Q4H4PDTGM43B"
+                "example": "597b3dde-9169-4017-800d-f97a5fabebe3"
               },
               "contacts": {
                 "type": "array",
@@ -4203,7 +4601,7 @@
               "audience_id": {
                 "type": "string",
                 "description": "Audience ID",
-                "example": "aud_01HXR9V5S7W1S0Q4H4PDTGM43B"
+                "example": "597b3dde-9169-4017-800d-f97a5fabebe3"
               }
             }
           }
